@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oleg Kudriashov",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
