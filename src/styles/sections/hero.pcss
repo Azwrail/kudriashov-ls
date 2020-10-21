@@ -1,0 +1,32 @@
+.hero {
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    margin-top: 200px;
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+
+        &__name {
+            font-family: Open Sans, serif;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 52px;
+            line-height: 60px;
+        }
+
+        &__card {
+            align-self: flex-start;
+            order: -10;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: right;
+            margin-right: 50px;
+        }
+    }
+
+    &__scroll {
+        display: flex;
+        margin-top: 300px;
+    }
+}
