@@ -7,7 +7,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 100px;
 
         &__name {
             font-family: Open Sans, serif;
@@ -15,10 +14,11 @@
             font-weight: 800;
             font-size: 52px;
             line-height: 60px;
+            align-self: flex-end;
         }
 
         &__card {
-            align-self: flex-start;
+            align-self: flex-end;
             order: -10;
             color: rgba(255, 255, 255, 0.5);
             text-align: right;
@@ -26,8 +26,9 @@
         }
     }
 
-    &__scroll {
-        display: flex;
-        margin-top: 300px;
+    &__scroll-buttons {
+        margin-top: 500px;
     }
+}
+.scroll-down-btn {
 }

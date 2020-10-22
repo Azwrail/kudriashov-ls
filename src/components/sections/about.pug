@@ -1,0 +1,24 @@
+-
+    const data = [
+        ['Проживаю:', 'Санкт-Петербург'],
+        ['Возраст:', '27 лет'],
+        ['Родился:', '1 апреля 1993']
+    ];
+section.about
+    .about__user
+        .user
+            .user__foto
+                .user__foto-style
+                    +image("content/user.jpg", 'user__foto-pic')
+            table.user__data
+                each item in data
+                    tr.user__data-row
+                        td.user__data-title #{item[0]}
+                        td.user__data-content #{item[1]}
+    .about__description
+        .about__hello Привет, меня зовут
+        .about__name Олег Кудряшов
+        .about__text
+            p Я занимаюсь разработкой современных сайтов и приложений. #[p] Мне нравится делать интересные и современные проекты.
+        .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
