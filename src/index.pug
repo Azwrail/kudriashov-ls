@@ -1,4 +1,4 @@
-include ./mixins.pug
+include mixins/mixins
 
 doctype html
 html(lang="en")
@@ -10,6 +10,11 @@ html(lang="en")
   body
     .wrapper
       .main-section-wallpaper
-          include components/layout/header
-          include components/sections/hero
-          include components/sections/about
+          .container.header
+            include components/layout/header
+          .container.hero
+            include components/sections/hero
+          .container.about
+            include components/sections/about
+      .skills-section-wallpaper
+            include components/sections/skills

@@ -1,0 +1,35 @@
+mixin icon(name, className)
+  - var icon = require(`images/icons/${name}.svg`).default;
+  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
+    use(xlink:href=`sprite.svg#${icon.id.replace('-usage', '')}`)
+
+mixin image(path, className)
+  img(src=require(`images/${path}`).default class=className)
+
+mixin circleChart(skill_title, value)
+  .circle-chart
+    svg(viewBox="0 0 200 200")
+      circle(
+        cx="100"
+        cy="100"
+        r="80"
+        fill="transparent"
+        stroke="#E9E9E9"
+        stroke-opacity = 0.1
+        stroke-width="3px"
+      )
+      circle(
+        cx="100"
+        cy="100"
+        r="80"
+        fill="transparent"
+        stroke="url(#gradient)"
+        stroke-width="12px"
+        stroke-dasharray="502.4"
+        stroke-dashoffset=value
+      )
+      .circle-chart__title #{skill_title}
+  svg(style="width:0; height:0; position: absolute;" aria-hidden="true")
+    linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+      stop(offset="0%" stop-color="#D0731B")
+      stop(offset="100%" stop-color="#b18333")

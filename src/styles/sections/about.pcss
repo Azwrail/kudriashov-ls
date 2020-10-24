@@ -1,11 +1,10 @@
 .about {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-top: 200px;
-
+    width: 100%;
     .about__description {
         max-width: 600px;
-        margin-right: 100px;
         .about__hello {
             font-family: Open Sans, serif;
             font-style: normal;
@@ -43,7 +42,6 @@
     }
 
     .about__user {
-        margin-left: 200px;
         .user {
             display: flex;
             flex-direction: column;
@@ -63,19 +61,22 @@
             }
 
             &__data {
-                &-row {
-                    padding: 40px;
-                    &:last-child {
-                        padding-bottom: 0;
-                    }
-                }
-
                 &-title {
-                    padding-right: 30px;
+                    padding-right: 80px;
+                    padding-top: 10px;
+                    color: rgba(255,255,255,.5);
+
+                    &:first-child {
+                        padding-top: 0;
+                    }
+
                 }
 
                 &-content {
-                    padding-left: 30px;
+                    padding-top: 10px;
+                    &:first-child {
+                        padding-top: 0;
+                    }
                 }
             }
         }
