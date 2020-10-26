@@ -1,0 +1,26 @@
+include mixins
+mixin socials(borders)
+    - const socials = ['insta', 'vk', 'github', 'email'];
+    ul.socials__list
+        each item in socials
+            if borders === true
+                li.socials__item--borders
+                    a(href="#").socials__link--borders
+                        +icon(item, 'socials__icon--borders')
+            else
+                li.socials__item
+                    a(href="#").socials__link
+                        +icon(item, 'socials__icon')
+
+mixin nav()
+    -
+        const nav = [
+            ['Обо мне', 'about'],
+            ['Навыки', 'skills'],
+            ['Работы', 'portfolio'],
+            ['Отзывы', 'reviews']
+        ];
+    ul.nav__list
+        each item in nav
+            li.nav__item
+                a(href="#" + item[1]).nav__link #{item[0]}

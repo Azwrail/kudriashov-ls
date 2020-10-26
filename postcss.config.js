@@ -28,5 +28,8 @@ module.exports = {
       propList: ["*", "!*border*"],
       selectorBlackList: [/^html$/],
     }),
+    require("postcss-url")({
+      useHash: true
+    })
   ],
 };
