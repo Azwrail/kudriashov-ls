@@ -7,15 +7,15 @@
     ];
     const socials = ['insta', 'vk', 'github', 'email'];
 header.header
-        a.logo(href="#") ОВ
-        .header__nav
-            ul.nav__list
-                each item in nav
-                    li.nav__item
-                        a(href="#" + item[1]).nav__link #{item[0]}
-        .header__socials
-            ul.socials__list
-                each item in socials
-                    li.socials__item
-                        a(href="#").socials__link
-                            +icon(item, 'socials__icon')
+    a.logo(href="#") ОК
+    .header__nav
+        ul.nav__list
+            each item in nav
+                li.nav__item
+                    a(href="#" + item[1]).nav__link #{item[0]}
+    .header__socials
+        ul.socials__list
+            each item in socials
+                li.socials__item
+                    a(href="#").socials__link
+                        +icon(item, 'socials__icon')

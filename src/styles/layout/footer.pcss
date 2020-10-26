@@ -1,0 +1,105 @@
+.footer {
+    position: relative;
+    min-height: 408px;
+    background-color: #222427;
+
+    &__wrapper {
+        display: flex;
+        padding-top: 100px;
+        color: rgba(100, 100, 100, 0.8);
+    }
+}
+
+.footer__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    line-height: 30px;
+
+    &-row {
+        display: flex;
+    }
+}
+
+.footer__copyright {
+    font-size: 48px;
+    margin-right: 60px;
+}
+
+.footer__bio {
+    margin-right: 127px;
+    &-name {
+        color: $text-color;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    &-desc {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: rgba(255, 255, 255, 0.3)
+    }
+}
+
+.footer__data {
+    width: 100%;
+    .footer__nav {
+        margin-bottom: 50px;
+        .menu__link {
+            color: $text-color;
+            &:hover {
+                color: rgba(100,100,100,0.8);
+            }
+        }
+    }
+
+    .footer__desc {
+        max-width: 348px;
+        
+
+        &-text {
+            margin-bottom: 30px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 30px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        &-socials {
+            .socials__item {
+                border: 2px solid rgba(100,100,100,0.8);
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                &:hover {
+                    opacity: 0.5;
+                }
+                .socials__link {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.footer__quote {
+    margin-left: auto;
+    max-width: 474px;
+    &-text {
+        margin-bottom: 25px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        color: rgba(255, 255, 255, 0.6)
+    }
+    &-author {
+        color: $text-color;
+    }
+}
