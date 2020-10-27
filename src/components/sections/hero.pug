@@ -1,7 +1,10 @@
-section.hero
-    .hero__title
-        .hero__title__name Олег Кудряшов
-        .hero__title__card Личный сайт #[br] веб разработчика
-    .hero__scroll-buttons
-        button.scroll-down-btn Скролл
-        +icon('scroll', 'scroll-down-btn__icon')
+section#main.hero
+    .fullscreen-section
+        .container.hero__container
+            include ../layout/header
+            .hero__title
+                .hero__title__name Олег #[br] Кудряшов
+                .hero__title__card Личный сайт #[br] веб разработчика
+            .hero__scroll-buttons
+                a(href="#about").scroll-down-btn Скролл
+                    +icon('scroll', 'scroll-down-btn__icon')

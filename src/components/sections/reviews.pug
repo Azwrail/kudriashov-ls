@@ -4,15 +4,15 @@
         ["content/reviews/avatar2.png", "Владимир Сабанцев", "Преподаватель", "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"]
     ];
 
-section.reviews
+section#reviews.reviews
     .container
         .reviews__wrapper
             .reviews__header
                 h2.reviews__title Что обо мне говорят
                 .reviews__buttons
-                    a.circle-btn
+                    button.circle-btn
                         +icon("arrow-down", "left-arrow")
-                    a.circle-btn
+                    button.circle-btn
                         +icon("arrow-down", "right-arrow")
             .reviews__content
                 each review in reviews

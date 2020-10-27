@@ -7,11 +7,18 @@
         &--borders {
             margin-right: 25px;
             border: 2px solid rgba(100,100,100,0.8);
+            &:hover {
+                border: 2px solid #FF9A00;
+
+            }
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            &:hover {
-                opacity: 0.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:last-child {
+                margin-right: 0;
             }
         }
         &:last-child {
@@ -21,13 +28,15 @@
 
     &__icon {
         height: 100%;
-        fill: $text-color;
-
+        &:hover {
+            fill: #FF9A00;
+        }
         &--borders {
             fill: rgba($text-color, .3);
             height: 25px;
-            margin-top: 10px;
-            margin-left: 9px;
+            &:hover {
+                fill: #FF9A00;
+            }
         }
     }
 
@@ -39,6 +48,7 @@
 
         &--borders {
             border-radius: 50%;
+            display: inline-flex;
         }
     }
 

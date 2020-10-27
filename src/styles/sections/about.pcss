@@ -1,17 +1,18 @@
 .about {
     display: flex;
-    justify-content: space-around;
-    margin-top: 200px;
+    justify-content: space-evenly;
     width: 100%;
     padding-bottom: 100px;
+
     .about__description {
         max-width: 600px;
+
         .about__hello {
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
             line-height: 22px;
-            margin-bottom: 30px;
+            margin-bottom: 21px;
         }
 
         .about__name {
@@ -19,15 +20,16 @@
             font-weight: bold;
             font-size: 36px;
             line-height: 49px;
-            margin-bottom: 30px;
+            margin-bottom: 31px;
         }
 
         .about__text {
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
-            line-height: 30px;
-            margin-bottom: 80px;
+            line-height: 31px;
+            margin-bottom: 77px;
+            color: rgba($text-color, .8);
         }
 
         .about__ps {
@@ -35,20 +37,27 @@
             font-weight: normal;
             font-size: 16px;
             line-height: 30px;
+            color: rgba($text-color, .8);
+            font-family: Open Sans, serif;
+        }
+
         }
     }
 
     .about__user {
+        flex: 1;
         .user {
             display: flex;
             flex-direction: column;
             align-items: center;
             &__foto {
                 margin-bottom: 40px;
+
                 &-style {
                     width: 200px;
                     height: 200px;
                 }
+
                 &-pic {
                     border-radius: 100px;
                     -webkit-border-radius: 100px;
@@ -61,7 +70,7 @@
                 &-title {
                     padding-right: 80px;
                     padding-top: 10px;
-                    color: rgba(255,255,255,.5);
+                    color: rgba(255, 255, 255, .5);
                 }
 
                 &-content {
@@ -70,6 +79,24 @@
             }
         }
     }
+
+.about__ps-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 400px;
+    flex: 0.1;
+
+    &-icon {
+        align-self: flex-end;
+        padding-bottom: 60px;
+        padding-right: 30px;
+    }
+}
+.about__container {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
