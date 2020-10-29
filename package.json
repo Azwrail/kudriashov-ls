@@ -63,6 +63,8 @@
   ],
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "postcss": "^8.1.4",
+    "postcss-url": "^9.0.0",
     "promptly": "^3.0.3",
     "pug": "^3.0.0",
     "request": "^2.88.0",
