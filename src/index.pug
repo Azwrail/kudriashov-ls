@@ -1,6 +1,5 @@
-include ./mixins.pug
-
-<!DOCTYPE html>
+include mixins/nav
+doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
@@ -9,7 +8,13 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      .main-section-wallpaper
+        include components/sections/hero
+        include components/sections/about
+      .skills-section-wallpaper
+        include components/sections/skills
+      include components/sections/portfolio
+      .review-section-wallpaper
+        include components/sections/reviews
+      include components/layout/footer
+

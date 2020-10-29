@@ -1,0 +1,33 @@
+.hero {
+    &__title {
+        display: flex;
+        justify-content: center;
+        &__name {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 52px;
+            line-height: 60px;
+        }
+
+        &__card {
+            order: -10;
+            color: rgba($text-color, 0.5);
+            text-align: right;
+            margin-right: 30px;
+            padding-top: 10px;
+        }
+    }
+
+    &__scroll-buttons {
+        display: flex;
+        justify-content: center;
+    }
+}
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 58px;
+    padding-bottom: 60px;
+    height: 100vh;
+    justify-content: space-between;
+}

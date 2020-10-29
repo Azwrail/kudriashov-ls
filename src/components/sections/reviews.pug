@@ -1,0 +1,28 @@
+-
+    const reviews = [
+        ["content/reviews/avatar1.png", "Ковальчук Дмитрий", "Основатель Loftschool", "Этот парень проходил обучение веб-разработке не где-то, а в Loftschool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!"],
+        ["content/reviews/avatar2.png", "Владимир Сабанцев", "Преподаватель", "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах"]
+    ];
+
+section#reviews.reviews
+    .container
+        .reviews__wrapper
+            .reviews__header
+                h2.reviews__title Что обо мне говорят
+                .reviews__buttons
+                    button.circle-btn
+                        +icon("arrow-down", "left-arrow")
+                    button.circle-btn
+                        +icon("arrow-down", "right-arrow")
+            .reviews__content
+                each review in reviews
+                    .review-item
+                        +icon("quote", "review-item__quote-icon")
+                        .review-item__card
+                            .review-item__text
+                                p #{review[3]}
+                            .review-item__author
+                                +image(review[0], "avatar review-item__avatar")
+                                .review-item__author-info
+                                    .review-item__author-name #{review[1]}
+                                    .review-item__author-position #{review[2]}
