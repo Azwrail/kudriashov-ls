@@ -1,0 +1,14 @@
+.hamburger-wrapper
+    button(type="button" id="hamburger-btn-open").hamburger-btn-open.desktop-tabs-visible
+        +icon("hamburger", "hamburger-btn-open__icon")
+    .hamburger-menu
+        button(type="button" id="hamburger-btn-close").hamburger-btn-close
+            +icon("remove", "hamburger-btn-close__icon")
+        .hamburger-menu__wrapper
+            .hamburger-menu__content
+                +nav()
+        .hamburger-menu__socials
+                - var socials = ['insta', 'vk', 'github'];
+                include ../../mixins/nav
+
+    .hamburger-menu__bg-layer

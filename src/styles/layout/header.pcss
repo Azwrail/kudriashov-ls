@@ -2,6 +2,23 @@
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+
+    @include tablet {
+        justify-content: flex-end;
+    }
+    @include tab-phones {
+        justify-content: space-around;
+    }
+    &__nav {
+        @include tablet {
+            display: none;
+        }
+    }
+    &__socials {
+        @include tab-phones {
+            display: none;
+        }
+    }
 }
 .logo {
     font-style: normal;
@@ -9,6 +26,10 @@
     font-size: 36px;
     line-height: 49px;
     text-decoration: none;
+    @include tablet {
+        margin-right: auto;
+        padding-left: 20px;
+    }
     &:hover {
         color: #FF9A00;
         text-decoration: underline;
