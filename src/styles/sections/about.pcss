@@ -6,13 +6,21 @@
 
     .about__description {
         max-width: 600px;
-
+        @include tab-phones {
+            max-width: 400px;
+        }
         .about__hello {
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
             line-height: 22px;
             margin-bottom: 21px;
+            @include tablet {
+                font-size: 14px;
+            }
+            @include phone {
+                margin-bottom: 5px;
+            }
         }
 
         .about__name {
@@ -21,16 +29,33 @@
             font-size: 36px;
             line-height: 49px;
             margin-bottom: 31px;
+            @include tablet {
+                font-size: 30px;
+                line-height: 41px;
+            }
+            @include phone {
+                max-width: 170px;
+            }
         }
 
         .about__text {
+            max-width: 550px;
             font-style: normal;
             font-weight: 600;
             font-size: 16px;
             line-height: 31px;
             margin-bottom: 77px;
             color: rgba($text-color, .8);
+            @include tablet {
+                font-size: 14px;
+                line-height: 24px;
+                margin-bottom: 36px;
+            }
+            @include phone {
+                margin-bottom: 62px;
+            }
         }
+
 
         .about__ps {
             font-style: italic;
@@ -39,6 +64,10 @@
             line-height: 30px;
             color: rgba($text-color, .8);
             font-family: Open Sans, serif;
+            @include tablet {
+                font-size: 14px;
+                line-height: 24px;
+            }
         }
 
         }
@@ -67,7 +96,14 @@
             }
 
             &__data {
+                min-width: 310px;
+                @include desktop {
+                    min-width: 260px;
+                }
                 &-title {
+                    @include desktop {
+                        padding-right: 20px;
+                    }
                     padding-right: 80px;
                     padding-top: 10px;
                     color: rgba(255, 255, 255, .5);
@@ -86,7 +122,6 @@
     justify-content: flex-end;
     align-items: flex-end;
     width: 400px;
-    flex: 0.1;
 
     &-icon {
         align-self: flex-end;
@@ -97,6 +132,11 @@
 .about__container {
     display: flex;
     justify-content: space-evenly;
+    @include tab-phones {
+        flex-direction: column;
+        align-items: center;
+        justify-content: normal;
+    }
 }
 
 
