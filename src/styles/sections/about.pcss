@@ -8,6 +8,7 @@
         max-width: 600px;
         @include tab-phones {
             max-width: 400px;
+            margin-right: 50px;
         }
         .about__hello {
             font-style: normal;
@@ -64,6 +65,9 @@
             line-height: 30px;
             color: rgba($text-color, .8);
             font-family: Open Sans, serif;
+            &:before {
+                content: url("../../images/content/ps.png");
+            }
             @include tablet {
                 font-size: 14px;
                 line-height: 24px;
@@ -75,6 +79,11 @@
 
     .about__user {
         flex: 1;
+        margin-right: 50px;
+        @include tab-phones {
+            margin-bottom: 50px;
+            margin-right: 0;
+        }
         .user {
             display: flex;
             flex-direction: column;
