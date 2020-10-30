@@ -3,12 +3,28 @@
         color: $text-color;
         display: inline-flex;
         justify-content: center;
+
+        @include tablet {
+            flex-wrap: wrap;
+            justify-content: normal;
+        }
     }
 
     &__item {
         margin-right: 60px;
+
         &:last-child {
             margin-right: 0;
+        }
+
+        @include tablet {
+            &:first-child {
+                margin-right: 52px;
+            }
+
+            &:last-child {
+                margin-right: 60px;
+            }
         }
     }
 

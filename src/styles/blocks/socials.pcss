@@ -55,5 +55,9 @@
     &__list {
         display: inline-flex;
         justify-content: center;
+        @include tablet {
+            flex-wrap: wrap;
+            justify-content: normal;
+        }
     }
 }
