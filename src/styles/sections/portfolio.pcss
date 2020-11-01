@@ -223,19 +223,21 @@
 .slider__preview {
     max-height: 100px;
     transition: 0.4s;
+    max-width: 900px;
     &:hover {
         cursor: pointer;
-        transform: translate(0, -40px)
     }
     &.active {
         border: 3px solid #dc9322;
     }
     @include desktop {
-        max-width: 900px;
         height: 50%;
     }
 }
 
 .slider__window {
     overflow: hidden;
+}
+.slider__button {
+    padding: 1px;
 }

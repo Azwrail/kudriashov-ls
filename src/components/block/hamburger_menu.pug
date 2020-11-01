@@ -6,9 +6,8 @@
             +icon("remove", "hamburger-btn-close__icon")
         .hamburger-menu__wrapper
             .hamburger-menu__content
-                +nav()
+                +nav('hamburger')
         .hamburger-menu__socials
-                - var socials = ['insta', 'vk', 'github'];
-                include ../../mixins/nav
+                +socials('hamburger')
 
     .hamburger-menu__bg-layer

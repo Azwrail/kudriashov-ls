@@ -1,18 +1,22 @@
 include mixins
-mixin socials(borders)
+mixin socials(section)
     - const socials = ['insta', 'vk', 'github', 'email'];
     ul.socials__list
         each item in socials
-            if borders === true
+            if section === 'footer'
                 li.socials__item--borders
                     a(href="#").socials__link--borders
                         +icon(item, 'socials__icon--borders')
-            else
+            else if  section === 'header'
                 li.socials__item
                     a(href="#").socials__link
                         +icon(item, 'socials__icon')
+            else if section === 'hamburger'
+                li.socials__item
+                    a(href="#").socials__link
+                        +icon(item, 'socials__icon--hamburger')
 
-mixin nav()
+mixin nav(section)
     -
         const nav = [
             ['Обо мне', 'about'],
@@ -20,7 +24,14 @@ mixin nav()
             ['Работы', 'portfolio'],
             ['Отзывы', 'reviews']
         ];
-    ul.nav__list
-        each item in nav
-            li.nav__item
-                a(href="#" + item[1]).nav__link #{item[0]}
+
+    if section === 'hamburger'
+        ul.nav__list--hamburger
+            each item in nav
+                li.nav__item--hamburger
+                    a(href="#" + item[1]).nav__link #{item[0]}
+    else
+        ul.nav__list
+            each item in nav
+                li.nav__item
+                    a(href="#" + item[1]).nav__link #{item[0]}

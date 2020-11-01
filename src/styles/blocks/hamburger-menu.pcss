@@ -16,7 +16,7 @@
     margin: 10px;
     display: none;
     svg {
-        fill: $text-color;
+        fill: #414C63;
     }
     &.active {
         display: block;
@@ -24,21 +24,22 @@
 }
 
 .hamburger-menu {
+    color: #414C63;
     z-index: 99;
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #fff;
+    background-color: $text-color;
     height: 100vh;
     width: 0;
     display: none;
     &.active {
         display: block;
-        min-width: 400px;
+        min-width: 300px;
     }
     &__wrapper {
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        height: 70%;
         padding: 100px 40px 40px;
         display: flex;
         flex-direction: column;
@@ -60,6 +61,8 @@
 
 .hamburger-menu__socials {
     margin-top: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .hamburger-menu__bg-layer {

@@ -9,14 +9,14 @@ section#portfolio.portfolio
                             .slider__current-item
                                 +image("content/portfolio/slider-1.jpg")
                                 .slider__preview-wrapper
-                                    //button(type="button")
-                                    +image("content/portfolio/slider-2.jpg", "slider__preview")
-                                    //button(type="button")
-                                    +image("content/portfolio/slider-3.jpg", "slider__preview")
-                                    //button(type="button")
-                                    +image("content/portfolio/slider-4.jpg", "slider__preview")
-                                    //button(type="button")
-                                    +image("content/portfolio/slider-1.jpg", "slider__preview active")
+                                    button(type="button").slider__button
+                                        +image("content/portfolio/slider-2.jpg", "slider__preview")
+                                    button(type="button").slider__button
+                                        +image("content/portfolio/slider-3.jpg", "slider__preview")
+                                    button(type="button").slider__button
+                                        +image("content/portfolio/slider-4.jpg", "slider__preview")
+                                    button(type="button").slider__button
+                                        +image("content/portfolio/slider-1.jpg", "slider__preview active")
                         .slider__buttons
                             button.up-btn
                                 +icon("arrow-down", "arrow-up")
