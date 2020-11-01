@@ -3,22 +3,25 @@ section#portfolio.portfolio
         .portfolio__wrapper
             h2.portfolio__title Мои работы
             .portfolio__content
-                .slider
+                .slider(data-slide=2)
                     .slider__main
                         .slider__window
                             .slider__current-item
                                 +image("content/portfolio/slider-1.jpg")
                                 .slider__preview-wrapper
+                                    //button(type="button")
                                     +image("content/portfolio/slider-2.jpg", "slider__preview")
+                                    //button(type="button")
                                     +image("content/portfolio/slider-3.jpg", "slider__preview")
+                                    //button(type="button")
                                     +image("content/portfolio/slider-4.jpg", "slider__preview")
+                                    //button(type="button")
                                     +image("content/portfolio/slider-1.jpg", "slider__preview active")
                         .slider__buttons
                             button.up-btn
                                 +icon("arrow-down", "arrow-up")
                             button.down-btn
                                 +icon("arrow-down", "arrow-down")
-                    .slider__current-item-number 2
                 .portfolio__desc
                     .tag-list
                         .tag
