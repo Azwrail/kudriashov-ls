@@ -6,23 +6,24 @@
 
 section#reviews.reviews
     .container
-        .reviews__wrapper
-            .reviews__header
-                h2.reviews__title Что обо мне говорят
-                .reviews__buttons
-                    button.circle-btn
-                        +icon("arrow-down", "left-arrow")
-                    button.circle-btn
-                        +icon("arrow-down", "right-arrow")
-            .reviews__content
-                each review in reviews
-                    .review-item
-                        +icon("quote", "review-item__quote-icon")
-                        .review-item__card
-                            .review-item__text
-                                p #{review[3]}
-                            .review-item__author
-                                +image(review[0], "avatar review-item__avatar")
-                                .review-item__author-info
-                                    .review-item__author-name #{review[1]}
-                                    .review-item__author-position #{review[2]}
+        #reviews-component
+        //.reviews__wrapper
+        //    .reviews__header
+        //        h2.reviews__title Что обо мне говорят
+        //        .reviews__buttons
+        //            button.circle-btn
+        //                +icon("arrow-down", "left-arrow")
+        //            button.circle-btn
+        //                +icon("arrow-down", "right-arrow")
+        //    .reviews__content
+        //        each review in reviews
+        //            .review-item
+        //                +icon("quote", "review-item__quote-icon")
+        //                .review-item__card
+        //                    .review-item__text
+        //                        p #{review[3]}
+        //                    .review-item__author
+        //                        +image(review[0], "avatar review-item__avatar")
+        //                        .review-item__author-info
+        //                            .review-item__author-name #{review[1]}
+        //                            .review-item__author-position #{review[2]}

@@ -1,0 +1,20 @@
+script(type="text/x-template")#reviews-container
+    .reviews__wrapper
+        .reviews__header
+            h2.reviews__title Что обо мне говорят
+            .reviews__buttons
+                button.circle-btn
+                    +icon("arrow-down", "left-arrow")
+                button.circle-btn
+                    +icon("arrow-down", "right-arrow")
+        swiper(ref="slider", :options = "sliderOptions").reviews__content
+            swiper-slide(v-for="review in reviews" :key="review.id").review-item
+                +icon("quote", "review-item__quote-icon")
+                .review-item__card
+                    .review-item__text
+                        p {{review.text}}
+                    .review-item__author
+                img(:src="review.authorPic").avatar.review-item__avatar
+                .review-item__author-info
+                    .review-item__author-name {{review.authorName}}
+                    .review-item__author-position {{review.authorOcc}}
