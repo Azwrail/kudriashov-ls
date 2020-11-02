@@ -227,9 +227,6 @@
     &:hover {
         cursor: pointer;
     }
-    &.active {
-        border: 3px solid #dc9322;
-    }
     @include desktop {
         height: 50%;
     }
@@ -239,5 +236,9 @@
     overflow: hidden;
 }
 .slider__button {
-    padding: 1px;
+    padding: 0;
+}
+.active {
+    border: 3px solid #DC9322;
+    box-sizing: border-box;
 }
