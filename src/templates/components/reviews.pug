@@ -3,12 +3,20 @@ script(type="text/x-template")#reviews-container
         .reviews__header
             h2.reviews__title Что обо мне говорят
             .reviews__buttons
-                button.circle-btn
+                button(
+                    @click="slide('prev')"
+                ).circle-btn
                     +icon("arrow-down", "left-arrow")
-                button.circle-btn
+                button(
+                    @click="slide('next')"
+                ).circle-btn
                     +icon("arrow-down", "right-arrow")
-        swiper(ref="slider", :options = "sliderOptions").reviews__content
-            swiper-slide(v-for="review in reviews" :key="review.id").review-item
+        carousel(
+            :perPageCustom="[[0, 1], [340, 1], [500, 2]]"
+            :paginationEnabled="false"
+            :navigationEnabled="true"
+        ).reviews__content
+            slide(v-for="review in reviews" :key="review.id").reviews-item
                 +icon("quote", "review-item__quote-icon")
                 .review-item__card
                     .review-item__text

@@ -23,7 +23,7 @@
 .footer__block {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     line-height: 30px;
 
     &-row {
@@ -33,7 +33,7 @@
 
 .footer__copyright {
     font-size: 48px;
-    margin-right: 60px;
+    margin-right: 50px;
     @include desktop {
         margin-right: 20px;
         margin-bottom: 26px;
@@ -43,7 +43,7 @@
 .footer__bio {
     margin-right: 127px;
     @include tablet {
-        margin-right: 20px;
+        margin-right: 80px;
     }
     &-name {
         color: $text-color;
@@ -79,7 +79,7 @@
 
     .footer__desc {
         max-width: 348px;
-        @include tablet {
+        @include desktop-tabs {
             margin-bottom: 50px;
         }
         &-text {
@@ -102,7 +102,7 @@
 .footer__quote {
     margin-left: auto;
     max-width: 474px;
-    @include tablet {
+    @include desktop-tabs {
         margin-left: 0;
 
     }
@@ -136,7 +136,7 @@
     }
 }
 .footer__other {
-    @include tablet {
+    @include desktop-tabs {
         flex-direction: column;
         align-items: flex-start;
         padding-bottom: 20px;

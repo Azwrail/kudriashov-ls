@@ -72,6 +72,7 @@
     "swiper": "^6.3.5",
     "vue": "^2.6.7",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-carousel": "^0.18.0",
     "vue-router": "^3.0.2"
   }
 }

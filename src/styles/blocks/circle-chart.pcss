@@ -3,10 +3,15 @@
     height: 150px;
     position: relative;
     margin-right: 40px;
-    @include desktop {
+    @include desktop-tabs {
         margin-right: 20px;
     }
-
+    @include tab-phones {
+        margin-right: 10px;
+    }
+    @include phones {
+        margin-right: 5px;
+    }
     &:last-child {
         margin: 0;
     }

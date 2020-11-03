@@ -41,19 +41,31 @@
 
     &__widget {
         display: flex;
-        @include desktop {
-        }
+
     }
 
     &__image {
         @include desktop-tabs {
-            order: 1;
-            transform: rotate(-90deg);
+            order: 10;
         }
         &-style {
             min-width: 20rem;
             max-width: 30rem;
         }
+        &-pic {
+            @include desktop-tabs {
+                display: none !important;
+            }
+            position: relative;
+            left: -20%;
+        }
+        &-hidden {
+            display: none !important;
+            @include desktop-tabs {
+                display: block !important;
+            }
+        }
+
     }
 }
 .skill {
@@ -80,6 +92,10 @@
     &-row__list {
         display: flex;
         margin-top: 20px;
+        @include tab-phones {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 
     &__item {

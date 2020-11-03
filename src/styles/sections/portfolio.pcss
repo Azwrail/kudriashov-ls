@@ -124,8 +124,8 @@
     &::after {
         content: attr(data-slide);
         position: absolute;
-        right: 0;
-        top: 7%;
+        right: 3%;
+        top: 33%;
         transform: translate(140px, 10px);
         font-size: 400px;
         font-weight: 800;
@@ -134,17 +134,17 @@
         z-index: -1;
             @include desktop {
                 font-size: 300px;
+                top: 40%;
+            }
+            @include desktop-mid {
+                font-size: 300px;
+                top: 47%;
             }
             @include desktop-tabs {
                 font-size: 300px;
-                top: 45%;
                 margin-right: 0;
             }
             @include tablet {
-                font-size: 300px;
-                top: 25%;
-            }
-            @include tab-phones {
                 display: none;
             }
     }
@@ -212,9 +212,12 @@
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 5%;
     max-width: 180px;
     padding-bottom: 59px;
+    @include tablet {
+        right: 6%;
+    }
     @include tab-phones {
         display: none;
     }

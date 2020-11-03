@@ -1,19 +1,15 @@
 import Vue from "vue";
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/swiper-bundle.css';
+import VueCarousel from 'vue-carousel';
+
+Vue.use(VueCarousel);
 
 new Vue({
     el: "#reviews-component",
     template: "#reviews-container",
     data() {
         return {
-            reviews: [],
-            sliderOptions: {}
+            reviews: []
         }
-    },
-    components: {
-        Swiper,
-        SwiperSlide
     },
     methods: {
         requireImagesToArray(data) {
@@ -22,6 +18,16 @@ new Vue({
                 item.authorPic = requiredImage;
                 return item;
             })
+        },
+        slide(direction) {
+            switch (direction) {
+                case "next":
+                    slider.slideNext()
+                    break;
+                case "prev":
+                    slider.slidePrev()
+                    break;
+            }
         }
     },
     created() {
