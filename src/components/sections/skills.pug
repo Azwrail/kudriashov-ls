@@ -1,14 +1,15 @@
 section#skills
-    .container
-        .skills__wrapper
-            .skills__image
-                .skills__image-style
-                    +image("content/hand.png", "skills__image-pic")
+    .skills-section-wallpaper
+        .image__absolute
+            +image("content/hand.png", "skills__image-pic")
+        .skills-container
+            .skills__wrapper
+                .skills__view
+                    .skills__title
+                        .skills__title-text Чем я могу быть полезен вам
+                        .skills__content
+                            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                    .skills__widget
+                        #skills-component
+                .skills__image
                     +image("content/hand_720.png", "skills__image-hidden")
-            .skills__view
-                .skills__widget
-                    #skills-component
-                .skills__title
-                    .skills__title-text Чем я могу быть полезен вам
-                    .skills__content
-                        p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

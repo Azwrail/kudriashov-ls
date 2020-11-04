@@ -1,8 +1,15 @@
+#skills {
+    position: relative;
+    padding-bottom: 70px;
+}
 .skills {
     &__wrapper {
-        padding-top: 100px;
-        display: flex;
-        justify-content: space-around;
+        @include desktop-mid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        max-width: 1200px;
         @include desktop-tabs {
             flex-direction: column;
             justify-content: center;
@@ -11,7 +18,7 @@
     }
 
     &__title {
-        order: -10;
+        width: 95%;
         max-width: 600px;
         margin-bottom: 70px;
         @include desktop-tabs {
@@ -37,32 +44,26 @@
     &__view {
         display: flex;
         flex-direction: column;
+        @include desktop-mid {
+            align-items: center;
+        }
     }
 
     &__widget {
         display: flex;
-
+        @include desktop-hd {
+            padding-left: 135px;
+        }
+        @include desktop-mid {
+            padding: 0;
+        }
     }
 
     &__image {
-        @include desktop-tabs {
-            order: 10;
-        }
-        &-style {
-            min-width: 20rem;
-            max-width: 30rem;
-        }
-        &-pic {
-            @include desktop-tabs {
-                display: none !important;
-            }
-            position: relative;
-            left: -20%;
-        }
         &-hidden {
-            display: none !important;
-            @include desktop-tabs {
-                display: block !important;
+            display: none;
+            @include desktop-mid {
+                display: block ;
             }
         }
 
@@ -84,7 +85,7 @@
         font-weight: bold;
         font-size: 24px;
         line-height: 33px;
-        @include desktop-tabs {
+        @include desktop-mid {
             text-align: center;
         }
     }
@@ -102,5 +103,26 @@
         &:first-child {
             margin-bottom: 40px;
         }
+    }
+}
+.image__absolute {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    min-width: 20rem;
+    max-width: 30rem;
+    @include desktop-mid {
+        display: none;
+    }
+}
+.skills-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    @include desktop-hd {
+        width: 95%;
+    }
+    @include desktop-mid {
+        justify-content: center;
     }
 }
