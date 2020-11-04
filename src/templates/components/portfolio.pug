@@ -14,27 +14,30 @@ script(type="text/x-template")#preview-display
         .slider__main
             .slider__window
                 img(:src="currentWork.photo")
-                .slider__preview-wrapper
-                    button.slider__button(
-                        v-for="work in reversedWorks" :key="work.id"
-                        :class="{active: currentWork.id === work.id}"
-                    )
-                        img(:src="work.photo").slider__preview
+            ul.slider__preview
+                li(
+                    v-for="work in reversedWorks" :key="work.id"
+                    :class="{active: currentWork.id === work.id}"
+                )
+                    button.slider__button
+                        img(:src="work.photo").preview__image
             slider-btns(
                 @slide="slide"
             )
 script(type="text/x-template")#slider-btns
-    .slider__buttons
-        button(
-            type="button",
-            @click="slide('next')"
-        ).up-btn
-            +icon("arrow-down", "arrow-up")
-        button(
-            type="button",
-            @click="slide('prev')"
-        ).down-btn
-            +icon("arrow-down", "arrow-down")
+    ul.slider__buttons
+        li
+            button(
+                type="button",
+                @click="slide('next')"
+            ).up-btn
+                +icon("arrow-down", "arrow-up")
+        li
+            button(
+                type="button",
+                @click="slide('prev')"
+            ).down-btn
+                +icon("arrow-down", "arrow-down")
 script(type="text/x-template")#preview-info
     .portfolio__desc
         preview-tag(

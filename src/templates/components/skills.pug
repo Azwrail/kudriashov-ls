@@ -8,7 +8,7 @@ script(type="text/x-template")#skills-row
                 ul.skills-widget-row__list
                     skills-item(v-for="skill in category.skills" :key="skill.id" :skill="skill")
 script(type="text/x-template")#skill-item
-    .circle-chart
+    li.circle-chart
         svg(viewBox="0 0 200 200")
             circle(
                 cx="100"

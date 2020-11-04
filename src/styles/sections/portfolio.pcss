@@ -1,10 +1,10 @@
+#portfolio {
+    margin-top: 100px;
+
+}
 .portfolio {
     padding-bottom: 50px;
     color: black;
-}
-
-.portfolio__wrapper {
-    margin-top: 170px;
 }
 
 .portfolio__title {
@@ -107,46 +107,41 @@
 }
 
 .slider {
-    max-width: 1133px;
     position: relative;
-    margin-right: 140px;
-    min-width: 650px;
+    padding-right: 7%;
     @include desktop {
-        margin-right: 30px;
+        padding-right: 8%;
     }
     @include desktop-tabs {
         margin-bottom: 60px;
+        padding-right: 9%;
     }
     @include tablet {
-        margin-right: 0;
-        min-width: 500px;
+        padding: 0;
     }
     &::after {
         content: attr(data-slide);
         position: absolute;
-        right: 3%;
+        right: 0;
         top: 33%;
-        transform: translate(140px, 10px);
         font-size: 400px;
         font-weight: 800;
         line-height: 1;
         color: #e6e6e6;
         z-index: -1;
-            @include desktop {
-                font-size: 300px;
-                top: 40%;
-            }
-            @include desktop-mid {
-                font-size: 300px;
-                top: 47%;
-            }
-            @include desktop-tabs {
-                font-size: 300px;
-                margin-right: 0;
-            }
-            @include tablet {
-                display: none;
-            }
+        @include desktop-mid {
+            top: 13%;
+        }
+        @include desktop {
+            top: 3%;
+        }
+
+        @include desktop-tabs {
+            top: 23%;
+        }
+        @include tablet {
+            display: none;
+        }
     }
 
     @include tab-phones {
@@ -155,18 +150,22 @@
 }
 
 .slider__main {
-    max-width: 977px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     position: relative;
+    padding-right: 50px;
+    @include tab-phones {
+        padding: 0;
+    }
 }
 
 .slider__buttons {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    right: 0;
     padding-bottom: 59px;
-
     .up-btn,
     .down-btn {
         display: inline-block;
@@ -206,24 +205,21 @@
     position: relative;
 }
 
-.slider__preview-wrapper {
+.slider__preview {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
-    right: 5%;
+    right: 50px;
     max-width: 180px;
     padding-bottom: 59px;
-    @include tablet {
-        right: 6%;
-    }
     @include tab-phones {
         display: none;
     }
 }
 
-.slider__preview {
+.preview__image{
     max-height: 100px;
     transition: 0.4s;
     max-width: 900px;
@@ -237,6 +233,7 @@
 
 .slider__window {
     overflow: hidden;
+    max-width: 977px;
 }
 .slider__button {
     padding: 0;
