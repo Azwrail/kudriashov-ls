@@ -8,7 +8,7 @@ new Vue({
     template: "#reviews-container",
     data() {
         return {
-            reviews: []
+            reviews: [],
         }
     },
     methods: {
@@ -22,10 +22,10 @@ new Vue({
         slide(direction) {
             switch (direction) {
                 case "next":
-                    slider.slideNext()
+                    document.querySelector('.VueCarousel-navigation-next').click()
                     break;
                 case "prev":
-                    slider.slidePrev()
+                    document.querySelector('.VueCarousel-navigation-prev').click()
                     break;
             }
         }
@@ -33,5 +33,6 @@ new Vue({
     created() {
         this.reviews = require("../data/reviews.json");
         this.reviews = this.requireImagesToArray(this.reviews)
+
     }
 })
