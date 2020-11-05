@@ -39,3 +39,44 @@
         opacity: 0.9;
     }
 }
+.circleBtnDisable {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 2px solid rgba($text-color, 0.5);
+    border-radius: 50%;
+    &:hover {
+        border: 2px solid #FF9A00;
+    }
+    svg {
+        &:hover {
+            fill: #FF9A00;
+        }
+        fill: rgba($text-color, 0.5);
+        width: 12px;
+        position: absolute;
+        top: 40%;
+        left: 36%;
+        &.left-arrow {
+            transform: rotate(-180deg);
+            transform-origin: 50% 50%;
+        }
+        &.right-arrow {
+            transform-origin: 50% 50%;
+        }
+    }
+
+    &:first-child {
+        margin-right: 30px;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
+}
