@@ -20,7 +20,7 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @click="onApprove"></icon>
+          <icon v-if="isValidTitle" symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
           <icon symbol="cross" @click="$emit('remove')"></icon>
@@ -41,11 +41,16 @@ export default {
       type: String,
       default: ""
     },
-    blocked: Boolean
+    blocked: Boolean,
+    editModeByDefault: Boolean,
+    isValidTitle: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
-      editmode: false,
+      editmode: this.editModeByDefault,
       title: this.value
     };
   },

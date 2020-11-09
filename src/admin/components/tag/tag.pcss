@@ -7,4 +7,18 @@
   margin-right: 8px;
   margin-bottom: 8px;
   font-size: 13px;
+  display: flex;
+  justify-content: space-between;
 }
+.remove {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:after {
+    content: "";
+    background: svg-load("cross.svg", fill=black) center center / contain no-repeat;
+    width: 10px;
+    height: 10px;
+  }
+}
+

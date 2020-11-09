@@ -42,3 +42,14 @@ export const blockedView = () => ({
 blockedView.story = {
   name: "Заблокированный",
 };
+
+export const withoutTick = () => ({
+  components: {editLine},
+  template: `
+    <editLine value="Название" :isValidTitle="false" />
+  `,
+})
+
+withoutTick.story = {
+  name: "Без tick"
+};

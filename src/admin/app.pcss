@@ -1,0 +1,35 @@
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: $text-color-admin;
+}
+.header {
+    display: flex;
+    margin-bottom: 50px;
+}
+.title {
+    margin-right: 60px;
+    font-size: 21px;
+    line-height: 29px;
+    font-weight: bold;
+
+}
+.page-content {
+    padding: 60px 0 20px;
+    background: url("../images/wallpaper/admin.jpg") center center / cover no-repeat;
+    flex: 1;
+}
+.blanks {
+    display: flex;
+    flex-wrap: wrap;
+}
+.item {
+    width: calc(100% / 2 - 30px);
+    margin-right: 30px;
+    &:last-child {
+        margin: 0;
+    }
+    margin-bottom: 30px;
+    height: 390px;
+}

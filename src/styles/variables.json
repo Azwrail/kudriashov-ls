@@ -1,5 +1,6 @@
 {
   "text-color": "#FFFFFF",
+  "text-color-admin": "#414C63",
   "text-color-hover": "#4b6fd7",
   "links-color": "#4b6fd7",
   "errors-color": "#cd1515",

@@ -12,6 +12,13 @@ export const defaultView = () => ({
   `
 });
 
+export const interactiveView = () => ({
+  components: { tag },
+  template: `
+    <tag title="tag" interactive/>
+  `
+});
+
 defaultView.story = {
   name: "Стандартный вид",
   parameters: {
@@ -20,3 +27,11 @@ defaultView.story = {
     ],
   },
 };
+interactiveView.story = {
+  name: "С контроллом",
+  parameters: {
+    backgrounds: [
+      { name: 'grey', value: '#8395a7', default: true },
+    ],
+  },
+}
