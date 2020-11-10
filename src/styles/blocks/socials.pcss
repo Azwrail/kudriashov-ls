@@ -7,9 +7,15 @@
         &--borders {
             margin-right: 25px;
             border: 2px solid rgba(100,100,100,0.8);
-            &:hover {
-                border: 2px solid #FF9A00;
 
+            &:hover {
+                cursor: pointer;
+                color: #FF9A00;
+                fill: #FF9A00;
+                border: 2px solid #FF9A00;
+                svg {
+                    fill: #FF9A00;
+                }
             }
             border-radius: 50%;
             width: 50px;
@@ -38,9 +44,6 @@
         &--borders {
             fill: rgba($text-color, .3);
             height: 25px;
-            &:hover {
-                fill: #FF9A00;
-            }
         }
 
         &--hamburger {
