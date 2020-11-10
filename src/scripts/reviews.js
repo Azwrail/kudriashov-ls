@@ -1,7 +1,6 @@
 import Vue from "vue";
-import VueCarousel from 'vue-carousel';
-
-Vue.use(VueCarousel);
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import 'swiper/swiper-bundle.css';
 
 new Vue({
     el: "#reviews-component",
@@ -9,9 +8,25 @@ new Vue({
     data() {
         return {
             reviews: [],
+            sliderOptions: {
+                slidesPerView: 2,
+                loop: false
+            },
             isDisableNext: false,
-            isDisablePrev: false
+            isDisablePrev: true
         }
+    },
+    computed: {
+        slider() {
+            return this.$refs["slider"].$swiper;
+        },
+        maxPageNumber() {
+            return this.reviews.length / 2
+        }
+    },
+    components: {
+        Swiper,
+        SwiperSlide
     },
     methods: {
         requireImagesToArray(data) {
@@ -24,33 +39,18 @@ new Vue({
         slide(direction) {
             switch (direction) {
                 case "next":
-                    document.querySelector('.VueCarousel-navigation-next').click()
+                    this.isDisablePrev = false;
+                    this.slider.slideNext();
                     break;
                 case "prev":
-                    document.querySelector('.VueCarousel-navigation-prev').click()
+                    this.isDisableNext = false;
+                    this.slider.slidePrev();
                     break;
             }
-        },
-        listenPageChange(pagenumber) {
-            const actualPageNumber = pagenumber +1;
-            if (this.maxPageNumber === actualPageNumber) {
-                this.isDisableNext = true;
-            } else if (actualPageNumber === 1) {
-                this.isDisablePrev = true;
-            } else {
-                this.isDisableNext = false;
-                this.isDisablePrev = false;
-            }
         }
-    },
-    computed: {
-      maxPageNumber() {
-          return this.reviews.length / 2
-      }
     },
     created() {
         this.reviews = require("../data/reviews.json");
         this.reviews = this.requireImagesToArray(this.reviews)
-        this.isDisablePrev = true;
     }
-})
+}) 

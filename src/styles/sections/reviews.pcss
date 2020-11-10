@@ -1,10 +1,11 @@
+#reviews {
+    padding-bottom: 150px;
+}
 .reviews {
     position: relative;
     &__wrapper {
         max-width: 1800px;
         max-height: 694px;
-        margin-top: 165px;
-        padding-bottom: 200px;
         @include tab-phones {
             display: flex;
             flex-direction: column;
@@ -54,8 +55,7 @@
 .review-item {
     display: flex;
 
-    align-items: flex-start;
-    margin-right: 85px;
+    align-items: start;
     @include desktop {
         margin-right: 20px;
     }
@@ -65,7 +65,7 @@
         }
     }
     @include tab-phones {
-        align-items: center;
+        //align-items: center;
         margin-right: 0;
     }
 
@@ -81,6 +81,7 @@
     &__card {
         display: flex;
         flex-direction: column;
+        height: 100%;
         max-width: 330px;
     }
 
@@ -129,10 +130,6 @@
         color: rgba(255, 255, 255, 0.5);
     }
 }
-.VueCarousel-navigation {
-    display: none;
-}
-.VueCarousel-slide {
+.review-item__author-wrapper {
     display: flex;
-    align-items: flex-start;
 }

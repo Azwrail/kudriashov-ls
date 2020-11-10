@@ -2,17 +2,29 @@
   <div
       :class="['add-skill-component', {blocked: blocked}]">
     <div class="add-title">
-      <app-input v-if="ifValidated" v-model="newSkill.title" noSidePaddings placeholder="Новый навык" />
-      <app-input v-else v-model="newSkill.title" v-on:input="ifValidated = true" error-message="Заполните поле"/>
+      <app-input v-if="ifValidatedTitle" v-model="newSkill.title" noSidePaddings placeholder="Новый навык" />
+      <app-input v-else v-model="newSkill.title" v-on:input="ifValidatedTitle = true" error-message="Заполните поле"/>
     </div>
     <div class="add-percent">
       <app-input
+          v-if="ifValidatedPercent"
           type="number"
           min="0"
           max="100"
           maxlength="3"
           v-model="newSkill.percent"
           placeholder="%"
+      />
+      <app-input
+          v-else
+          type="number"
+          min="0"
+          max="100"
+          maxlength="3"
+          v-model="newSkill.percent"
+          placeholder="%"
+          error-message="Заполните поле"
+          v-on:input="ifValidatedPercent = true"
       />
     </div>
     <div class="add-button">
@@ -35,13 +47,17 @@ export default {
         title: "",
         percent: 100
       },
-      ifValidated: Boolean
+      ifValidatedTitle: true,
+      ifValidatedPercent: true
     }
   },
   methods: {
     onAdd() {
       if (this.newSkill.title === "") {
-        this.ifValidated = false
+        this.ifValidatedTitle = false
+      }
+      if (this.newSkill.percent === ""){
+        this.ifValidatedPercent = false
       } else {
         const skill = this.newSkill;
         // this.$emit('addSkill', skill)

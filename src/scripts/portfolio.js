@@ -9,7 +9,7 @@ const sliderBtns = {
     }
 };
 const previewDisplay = {
-    props: ["currentWork", "portfolio", "currentIndex"],
+    props: ["currentWork", "portfolio", "currentIndex", "previewImage"],
     template: "#preview-display",
     components: {
         sliderBtns
@@ -17,6 +17,9 @@ const previewDisplay = {
     methods: {
         slide(direction) {
             this.$emit("slide", direction)
+        },
+        show(key) {
+            this.$emit("show", key)
         }
     },
     computed: {
@@ -51,14 +54,22 @@ new Vue({
     data() {
         return {
             portfolio: [],
-            currentIndex: 0
+            currentIndex: 0,
+            key: ""
         }
     },
 
     computed: {
       currentWork() {
           return this.portfolio[0]
-      }
+      },
+        previewImage() {
+          if (this.key === "") {
+              return this.portfolio[0].photo
+          } else {
+              return this.portfolio[this.key].photo
+          }
+        }
     },
     watch: {
         currentIndex(value) {
@@ -79,14 +90,17 @@ new Vue({
                 case "next":
                     this.portfolio.push(this.portfolio[0]);
                     this.portfolio.shift();
-                    this.currentIndex++;
+                    this.currentIndex = this.portfolio[0].id;
                     break;
                 case "prev":
                     this.portfolio.unshift(lastItem);
                     this.portfolio.pop();
-                    this.currentIndex--;
+                    this.currentIndex = this.portfolio[0].id;
                     break;
             }
+        },
+        show(key) {
+            this.key = key - 1;
         },
         makeInfiniteLoopForNdx(index) {
             const worksNumber = this.portfolio.length - 1;

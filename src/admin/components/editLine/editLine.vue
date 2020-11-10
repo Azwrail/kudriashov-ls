@@ -3,7 +3,8 @@
     <div class="title" v-if="editmode === false">
       <div class="text">{{value}}</div>
       <div class="icon">
-        <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="pencil" class="btn" grayscale @click="editmode = true"></icon>
+        <icon symbol="trash" class="btn" grayscale @click="$emit('remove-blank')"></icon>
       </div>
     </div>
     <div v-else class="title">

@@ -57,6 +57,7 @@ export default {
 @import "normalize.css";
 @import "../styles/mixins.pcss";
 @import "../styles/layout/base.pcss";
+@import '../styles/blocks/adaptive.pcss';
 </style>
 
 <style lang="postcss" scoped src="./app.pcss">

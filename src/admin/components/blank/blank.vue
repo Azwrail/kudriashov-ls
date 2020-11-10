@@ -6,6 +6,7 @@
           v-model="blankTitle"
           :edit-mode-by-default="empty"
           @remove="$emit('remove', $event)"
+          @remove-blank="$emit('remove-blank')"
           @approve="validationTitle()"
           :isValidTitle="isTitleNotEmpty">
       </edit-line>

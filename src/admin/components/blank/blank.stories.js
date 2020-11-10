@@ -4,7 +4,8 @@ import { action } from "@storybook/addon-actions"
 const methods = {
     onRemove: action("onRemove"),
     onRemoveSkill: action("onRemoveSkill"),
-    onEditSkill: action("onEditSkill")
+    onEditSkill: action("onEditSkill"),
+    onRemoveBlank: action("onRemoveBlank")
 }
 export default {
     title: "blank",
@@ -31,7 +32,8 @@ export const defaultView = () => ({
             :skills="skills" 
             @remove="onRemove"
             @remove-skill="onRemoveSkill"
-            @edit-skill="onEditSkill">
+            @edit-skill="onEditSkill"
+            @remove-blank="onRemoveBlank">
         </blank>
     `,
     methods

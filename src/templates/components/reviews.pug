@@ -4,29 +4,32 @@ script(type="text/x-template")#reviews-container
             h2.reviews__title Что обо мне говорят
             .reviews__buttons
                 button(
+                    type="button"
                     @click="slide('prev')"
                     v-bind:class="{circleBtnDisable: isDisablePrev}"
                 ).circle-btn
                     +icon("arrow-down", "left-arrow")
                 button(
+                    type="button"
                     @click="slide('next')"
                     v-bind:class="{circleBtnDisable: isDisableNext}"
                 ).circle-btn
                     +icon("arrow-down", "right-arrow")
-        carousel(
-            :perPageCustom="[[0, 1], [340, 1], [500, 2]]"
-            :paginationEnabled="false"
-            :navigationEnabled="true"
-            @page-change="listenPageChange"
+        swiper(
+            ref="slider",
+            :options = "sliderOptions"
+            @reachBeginning="isDisablePrev = true"
+            @reachEnd="isDisableNext = true"
         ).reviews__content
-            slide(v-for="review in reviews" :key="review.id" )
+            swiper-slide(v-for="review in reviews" :key="review.id").review-item
                 +icon("quote", "review-item__quote-icon")
                 .reviews-item
                     .review-item__card
                         .review-item__text
                             p {{review.text}}
                         .review-item__author
-                    img(:src="review.authorPic").avatar.review-item__avatar
-                    .review-item__author-info
-                        .review-item__author-name {{review.authorName}}
-                        .review-item__author-position {{review.authorOcc}}
+                    .review-item__author-wrapper
+                        img(:src="review.authorPic").avatar.review-item__avatar
+                        .review-item__author-info
+                            .review-item__author-name {{review.authorName}}
+                            .review-item__author-position {{review.authorOcc}}
