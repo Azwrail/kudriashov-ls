@@ -1,6 +1,6 @@
 <template>
   <nav class="navigation-component">
-    <div class="container navigation-container">
+    <div class="admin-container navigation-container">
       <ul class="list">
         <li
             v-for="link in links"

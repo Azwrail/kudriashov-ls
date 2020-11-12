@@ -5,7 +5,7 @@
     </headline>
     <navigation></navigation>
     <div class="page-content">
-      <div class="container page-content-container">
+      <div class="admin-container page-content-container">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-btn

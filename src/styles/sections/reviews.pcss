@@ -48,6 +48,8 @@
 
     &__content {
         display: flex;
+        max-width: 1000px;
+        margin-left: 0 !important;
     }
 }
 
@@ -59,11 +61,7 @@
     @include desktop {
         margin-right: 20px;
     }
-    &:last-child {
-        @include tab-phones {
-            display: none;
-        }
-    }
+
     @include tab-phones {
         //align-items: center;
         margin-right: 0;
@@ -72,7 +70,8 @@
     &__quote-icon {
         margin-right: 20px;
         fill: #303133;
-        width: 63px;
+        width: 50px;
+        flex-shrink: 0.5;
         @include tab-phones {
             display: none;
         }
@@ -82,7 +81,6 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        max-width: 330px;
     }
 
     &__text {
@@ -132,4 +130,12 @@
 }
 .review-item__author-wrapper {
     display: flex;
+}
+.swiper-slide {
+    //@include tablet {
+    //    display: none !important;
+    //    &:first-child {
+    //        display: block !important;
+    //    }
+    //}
 }

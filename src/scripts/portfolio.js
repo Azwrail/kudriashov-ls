@@ -62,14 +62,7 @@ new Vue({
     computed: {
       currentWork() {
           return this.portfolio[0]
-      },
-        previewImage() {
-          if (this.key === "") {
-              return this.portfolio[0].photo
-          } else {
-              return this.portfolio[this.key].photo
-          }
-        }
+      }
     },
     watch: {
         currentIndex(value) {
@@ -90,17 +83,19 @@ new Vue({
                 case "next":
                     this.portfolio.push(this.portfolio[0]);
                     this.portfolio.shift();
-                    this.currentIndex = this.portfolio[0].id;
+                    this.currentIndex++
                     break;
                 case "prev":
                     this.portfolio.unshift(lastItem);
                     this.portfolio.pop();
-                    this.currentIndex = this.portfolio[0].id;
+                    this.currentIndex--
                     break;
             }
         },
-        show(key) {
-            this.key = key - 1;
+        show(index) {
+            const current = this.portfolio.splice(index, 1);
+            this.portfolio.unshift(current[0]);
+            this.currentIndex = index;
         },
         makeInfiniteLoopForNdx(index) {
             const worksNumber = this.portfolio.length - 1;

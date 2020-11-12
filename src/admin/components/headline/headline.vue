@@ -1,6 +1,6 @@
 <template>
   <div class="headline-component">
-      <div class="container headline-container">
+      <div class="admin-container headline-container">
         <slot></slot>
         <div class="title">
           {{title}}

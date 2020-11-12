@@ -6,7 +6,6 @@ script(type="text/x-template")#portfolio-container
             @slide="slide"
             :currentIndex = "currentIndex"
             @show="show"
-            :previewImage="previewImage"
         )
         preview-info(
             :currentWork = "currentWork"
@@ -15,15 +14,15 @@ script(type="text/x-template")#preview-display
     .slider(:data-slide="currentIndex + 1")
         .slider__main
             .slider__window
-                img(:src="previewImage")
+                img(:src="currentWork.photo")
             ul.slider__preview
                 li(
-                    v-for="work in reversedWorks" :key="work.id"
+                    v-for="(work, index) in reversedWorks" :key="work.id"
                     :class="{active: currentWork.id === work.id}"
                 )
                     button(
                         type="button"
-                        @click="show(work.id)"
+                        @click="show(index)"
                     ).slider__button
                         img(:src="work.photo").preview__image
             slider-btns(
