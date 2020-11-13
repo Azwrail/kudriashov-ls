@@ -26,7 +26,11 @@
         @content;
     }
 }
-
+@mixin swiper() {
+    @media (max-width: $swiper) {
+        @content;
+    }
+}
 @mixin tab-phones() {
     @media (max-width: $bp-tab-phones) {
         @content;

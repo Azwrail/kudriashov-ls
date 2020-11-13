@@ -13,7 +13,8 @@ new Vue({
                 loop: false
             },
             isDisableNext: false,
-            isDisablePrev: true
+            isDisablePrev: true,
+            windowsWidth: null
         }
     },
     computed: {
@@ -27,6 +28,17 @@ new Vue({
     components: {
         Swiper,
         SwiperSlide
+    },
+    watch: {
+        windowsWidth(value) {
+            if (value < 650) {
+                this.slider.params.slidesPerView = 1
+                this.slider.update()
+            } else {
+                this.slider.params.slidesPerView = 2
+                this.slider.update()
+            }
+        }
     },
     methods: {
         requireImagesToArray(data) {
@@ -47,10 +59,15 @@ new Vue({
                     this.slider.slidePrev();
                     break;
             }
+        },
+        onWindowResize() {
+            this.windowsWidth = window.innerWidth
         }
     },
     created() {
         this.reviews = require("../data/reviews.json");
         this.reviews = this.requireImagesToArray(this.reviews)
+        this.windowsWidth = window.innerWidth
+        window.addEventListener("resize", this.onWindowResize);
     }
 }) 
