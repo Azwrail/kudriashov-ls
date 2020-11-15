@@ -6,11 +6,16 @@
     color: $text-color;
     background-color: transparent;
     text-decoration: none;
+    display: flex;
+    align-items: center;
     &:hover {
         cursor: pointer;
         color: #FF9A00;
         fill: #FF9A00;
         text-decoration: underline;
+        svg {
+            fill: #FF9A00;
+        }
     }
     &__icon {
         width: 16px;

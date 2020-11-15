@@ -1,10 +1,10 @@
+#portfolio {
+    padding-top: 30px;
+    padding-bottom: 150px;
+}
 .portfolio {
     padding-bottom: 50px;
     color: black;
-}
-
-.portfolio__wrapper {
-    margin-top: 170px;
 }
 
 .portfolio__title {
@@ -13,17 +13,31 @@
     font-size: 36px;
     line-height: 49px;
     margin-bottom: 83px;
+    @include desktop-tabs {
+        margin-bottom: 48px;
+    }
+    @include tablet {
+        text-align: center;
+    }
 }
 
 .portfolio__content {
     display: flex;
     width: 100%;
+    @include desktop-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .portfolio__desc {
     display: flex;
     flex-direction: column;
     max-width: 348px;
+    @include desktop-tabs {
+        max-width: 420px;
+        align-items: center;
+    }
 }
 
 .portfolio__desc-title {
@@ -32,6 +46,9 @@
     font-size: 30px;
     line-height: 41px;
     margin-top: 50px;
+    @include tab-phones {
+        text-align: center;
+    }
 }
 
 .portfolio__desc-info {
@@ -41,6 +58,11 @@
     line-height: 30px;
     margin-top: 30px;
     color: rgba(51, 60, 73, 0.8);
+    @include desktop-tabs {
+        text-align: center;
+        font-size: 14px;
+        line-height: 24px;
+    }
 }
 
 .portfolio__desc-link {
@@ -58,6 +80,11 @@
         fill: #586ed3;
         margin-right: 20px;
     }
+    @include desktop-tabs {
+        text-align: center;
+        font-size: 14px;
+        line-height: 19px;
+    }
 }
 .tag-list {
     display: flex;
@@ -73,28 +100,72 @@
     padding: 15px 23px;
     margin-right: 15px;
     color: rgba(51, 60, 73, 0.8);
-    
+
     &:last-child {
         margin: 0;
     }
 }
+
 .slider {
-    width: 100%;
     position: relative;
+    padding-right: 7%;
+    @include desktop {
+        padding-right: 8%;
+    }
+    @include desktop-tabs {
+        margin-bottom: 60px;
+        padding-right: 9%;
+    }
+    @include tablet {
+        padding: 0;
+    }
+    &::after {
+        content: attr(data-slide);
+        position: absolute;
+        right: 0;
+        top: 33%;
+        font-size: 400px;
+        font-weight: 800;
+        line-height: 1;
+        color: #e6e6e6;
+        z-index: -1;
+        @include desktop-mid {
+            top: 13%;
+        }
+        @include desktop {
+            top: 3%;
+        }
+
+        @include desktop-tabs {
+            top: 23%;
+        }
+        @include tablet {
+            display: none;
+        }
+    }
+
+    @include tab-phones {
+        min-width: 100%;
+    }
 }
 
 .slider__main {
-    width: 977px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
+    position: relative;
+    padding-right: 50px;
+    @include tablet {
+        padding: 0;
+    }
 }
 
 .slider__buttons {
     display: flex;
     flex-direction: column;
-    padding-bottom: 59px;
-
+    position: absolute;
+    right: 0;
+    padding-bottom: 60px;
     .up-btn,
     .down-btn {
         display: inline-block;
@@ -114,7 +185,6 @@
                 transform-origin: 50% 50%;
             }
             &.arrow-down {
-                opacity: 0.4;
                 transform: rotate(180deg);
                 transform-origin: 50% 50%;
             }
@@ -134,42 +204,45 @@
     position: relative;
 }
 
-.slider__preview-wrapper {
+.slider__preview {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 50px;
     max-width: 180px;
     padding-bottom: 59px;
+    @include tablet {
+        display: none;
+    }
 }
 
-.slider__preview {
-    height: 100px;
+.preview__image{
+    max-height: 100px;
     transition: 0.4s;
+    max-width: 900px;
     &:hover {
         cursor: pointer;
-        transform: translate(0, -40px)
     }
-    &.active {
-        border: 3px solid #dc9322;
+    @include desktop {
+        height: 50%;
     }
 }
 
 .slider__window {
     overflow: hidden;
+    max-width: 977px;
 }
-
-.slider__current-item-number {
-    display: inline;
-    position: absolute;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 400px;
-    line-height: 48px;
-    color: #e6e6e6;
-    top: 35%;
-    right: 0;
-    z-index: -1;
+.slider__button {
+    padding: 0;
+}
+.active {
+    border: 3px solid #DC9322;
+    box-sizing: border-box;
+}
+.slider__buttons-item {
+    &:first-child {
+        max-height: 50px;
+    }
 }

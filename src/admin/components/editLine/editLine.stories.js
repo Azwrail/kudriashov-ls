@@ -3,7 +3,8 @@ import { action } from "@storybook/addon-actions";
 
 const methods = {
   onApprove: action("onApprove"),
-  onRemove: action("onRemove")
+  onRemove: action("onRemove"),
+  onRemoveBlank: action("onRemoveBlank")
 }
 
 export default {
@@ -23,6 +24,7 @@ export const defaultView = () => ({
       @approve="onApprove"
       @remove="onRemove" 
       v-model="title"
+      @remove-blank="onRemoveBlank"
     />
   `,
   methods
@@ -41,4 +43,15 @@ export const blockedView = () => ({
 
 blockedView.story = {
   name: "Заблокированный",
+};
+
+export const withoutTick = () => ({
+  components: {editLine},
+  template: `
+    <editLine value="Название" :isValidTitle="false" />
+  `,
+})
+
+withoutTick.story = {
+  name: "Без tick"
 };

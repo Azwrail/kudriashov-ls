@@ -1,0 +1,59 @@
+script(type="text/x-template")#portfolio-container
+    .portfolio__content
+        preview-display(
+            :currentWork = "currentWork",
+            :portfolio = "portfolio"
+            @slide="slide"
+            :currentIndex = "currentIndex"
+            @show="show"
+        )
+        preview-info(
+            :currentWork = "currentWork"
+        )
+script(type="text/x-template")#preview-display
+    .slider(:data-slide="currentIndex + 1")
+        .slider__main
+            .slider__window
+                img(:src="currentWork.photo")
+            ul.slider__preview
+                li(
+                    v-for="(work, index) in reversedWorks" :key="work.id"
+                    :class="{active: currentWork.id === work.id}"
+                )
+                    button(
+                        type="button"
+                        @click="show(index)"
+                    ).slider__button
+                        img(:src="work.photo").preview__image
+            slider-btns(
+                @slide="slide"
+            )
+script(type="text/x-template")#slider-btns
+    ul.slider__buttons
+        li.slider__buttons-item
+            button(
+                type="button",
+                @click="slide('next')"
+            ).up-btn
+                +icon("arrow-down", "arrow-up")
+        li.slider__buttons-item
+            button(
+                type="button",
+                @click="slide('prev')"
+            ).down-btn
+                +icon("arrow-down", "arrow-down")
+script(type="text/x-template")#preview-info
+    .portfolio__desc
+        preview-tag(
+            :tags = "tagsArray"
+        )
+
+        h3.portfolio__desc-title {{currentWork.title}}
+        .portfolio__desc-info {{currentWork.desc}}
+        a(href="#").portfolio__desc-link
+            +icon("link", "portfolio__desc-link-icon")
+            | Посмотреть сайт
+script(type="text/x-template")#preview-tag
+    .tag-list
+        .tag(v-for="tag in tags")
+            span {{tag}}

@@ -1,0 +1,46 @@
+.list {
+    display: flex;
+}
+
+.link {
+    padding: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    text-decoration: none;
+    @media (max-width: 450px) {
+        font-size: 14px;
+        padding: 25px;
+    }
+    &:hover {
+        color: #383bcf;
+        position: relative;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #383bcf;
+    }
+}
+.active {
+    position: relative;
+    color: #383bcf;
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #383bcf;
+    }
+}
+.navigation-component {
+    color: $text-color-admin;
+}

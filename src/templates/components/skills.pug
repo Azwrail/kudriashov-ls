@@ -1,0 +1,36 @@
+script(type="text/x-template")#skills-list
+    ul.skills-widget
+        li.skills-widget__item(v-for="category in skills" :key="category.id")
+            skills-row(:category="category")
+script(type="text/x-template")#skills-row
+        .skills-widget-row
+            .skills-widget__title {{category.title}}
+                ul.skills-widget-row__list
+                    skills-item(v-for="skill in category.skills" :key="skill.id" :skill="skill")
+script(type="text/x-template")#skill-item
+    li.circle-chart
+        svg(viewBox="0 0 200 200")
+            circle(
+                cx="100"
+                cy="100"
+                r="80"
+                fill="transparent"
+                stroke="#e9e9e9"
+                stroke-opacity = 0.1
+                stroke-width="3px"
+            )
+            circle(
+                ref="circle"
+                cx="100"
+                cy="100"
+                r="80",
+                fill="transparent"
+                stroke="url(#gradient)"
+                stroke-width="12px"
+                stroke-dasharray="502.4"
+            )
+        .circle-chart__title {{skill.title}}
+        svg(style="width:0; height:0; position: absolute;" aria-hidden="true")
+            linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                stop(offset="0%" stop-color="#D0731B")
+                stop(offset="100%" stop-color="#b18333")

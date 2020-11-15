@@ -3,7 +3,8 @@
     <div class="title" v-if="editmode === false">
       <div class="text">{{value}}</div>
       <div class="icon">
-        <icon symbol="pencil" grayscale @click="editmode = true"></icon>
+        <icon symbol="pencil" class="btn" grayscale @click="editmode = true"></icon>
+        <icon symbol="trash" class="btn" grayscale @click="$emit('remove-blank')"></icon>
       </div>
     </div>
     <div v-else class="title">
@@ -20,7 +21,7 @@
       </div>
       <div class="buttons">
         <div class="button-icon">
-          <icon symbol="tick" @click="onApprove"></icon>
+          <icon v-if="isValidTitle" symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
           <icon symbol="cross" @click="$emit('remove')"></icon>
@@ -41,11 +42,16 @@ export default {
       type: String,
       default: ""
     },
-    blocked: Boolean
+    blocked: Boolean,
+    editModeByDefault: Boolean,
+    isValidTitle: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
-      editmode: false,
+      editmode: this.editModeByDefault,
       title: this.value
     };
   },

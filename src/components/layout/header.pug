@@ -1,6 +1,7 @@
 header.header
-    a.logo(href="#") ОК
+    .logo ОК
     .header__nav
         +nav()
     .header__socials
-        +socials(false)
+        +socials('header')
+    include ../block/hamburger_menu

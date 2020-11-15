@@ -7,13 +7,23 @@
         display: flex;
         padding-top: 100px;
         color: rgba(100, 100, 100, 0.8);
+        @include tablet {
+           justify-content: center;
+        }
+        @include tab-phones {
+            padding-top: 50px;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding-left: 30px;
+        }
     }
 }
 
 .footer__block {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     line-height: 30px;
 
     &-row {
@@ -23,11 +33,18 @@
 
 .footer__copyright {
     font-size: 48px;
-    margin-right: 60px;
+    margin-right: 50px;
+    @include desktop {
+        margin-right: 20px;
+        margin-bottom: 26px;
+    }
 }
 
 .footer__bio {
     margin-right: 127px;
+    @include tablet {
+        margin-right: 80px;
+    }
     &-name {
         color: $text-color;
         font-style: normal;
@@ -42,12 +59,16 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 30px;
-        color: rgba(255, 255, 255, 0.3)
+        color: rgba(255, 255, 255, 0.3);
+        min-width: 133px;
     }
 }
 
 .footer__data {
     width: 100%;
+    @include tablet {
+        width: auto;
+    }
     .footer__nav {
         margin-bottom: 50px;
         .menu__link {
@@ -58,7 +79,9 @@
 
     .footer__desc {
         max-width: 348px;
-
+        @include desktop-tabs {
+            margin-bottom: 50px;
+        }
         &-text {
             margin-bottom: 30px;
             font-style: normal;
@@ -66,6 +89,12 @@
             font-size: 16px;
             line-height: 30px;
             color: rgba(255, 255, 255, 0.6);
+            margin-right: 50px;
+            min-width: 326px;
+            @include tablet {
+                min-width: auto;
+                margin-right: 0;
+            }
         }
     }
 }
@@ -73,6 +102,10 @@
 .footer__quote {
     margin-left: auto;
     max-width: 474px;
+    @include desktop-tabs {
+        margin-left: 0;
+
+    }
     &-text {
         margin-bottom: 25px;
         font-style: normal;
@@ -84,5 +117,28 @@
     &-author {
         color: $text-color;
         font-style: italic;
+    }
+}
+.footer__info {
+    display: flex;
+    justify-content: space-between;
+    @include desktop {
+        flex-direction: column;
+        justify-content: normal;
+    }
+    @include tablet {
+        flex-direction: column;
+        justify-content: normal;
+    }
+
+    @include tab-phones {
+        margin-bottom: 45px;
+    }
+}
+.footer__other {
+    @include desktop-tabs {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 20px;
     }
 }

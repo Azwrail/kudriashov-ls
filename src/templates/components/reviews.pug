@@ -1,0 +1,35 @@
+script(type="text/x-template")#reviews-container
+    .reviews__wrapper
+        .reviews__header
+            h2.reviews__title Что обо мне говорят
+            .reviews__buttons
+                button(
+                    type="button"
+                    @click="slide('prev')"
+                    v-bind:class="{circleBtnDisable: isDisablePrev}"
+                ).circle-btn
+                    +icon("arrow-down", "left-arrow")
+                button(
+                    type="button"
+                    @click="slide('next')"
+                    v-bind:class="{circleBtnDisable: isDisableNext}"
+                ).circle-btn
+                    +icon("arrow-down", "right-arrow")
+        swiper(
+            ref="slider",
+            :options = "sliderOptions"
+            @reachBeginning="isDisablePrev = true"
+            @reachEnd="isDisableNext = true"
+        ).reviews__content
+            swiper-slide(v-for="review in reviews" :key="review.id").review-item
+                +icon("quote", "review-item__quote-icon")
+                .reviews-item
+                    .review-item__card
+                        .review-item__text
+                            p {{review.text}}
+                        .review-item__author
+                    .review-item__author-wrapper
+                        img(:src="review.authorPic").avatar.review-item__avatar
+                        .review-item__author-info
+                            .review-item__author-name {{review.authorName}}
+                            .review-item__author-position {{review.authorOcc}}

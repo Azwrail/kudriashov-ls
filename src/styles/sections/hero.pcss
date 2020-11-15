@@ -2,11 +2,25 @@
     &__title {
         display: flex;
         justify-content: center;
+        padding: 120px 0;
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
+        }
         &__name {
             font-style: normal;
             font-weight: 800;
-            font-size: 52px;
+            font-size: 72px;
             line-height: 60px;
+            @include tablet {
+                font-size: 48px;
+                line-height: 48px;
+                text-align: center;
+            }
+            @include tab-phones {
+                font-size: 36px;
+                line-height: 48px;
+            }
         }
 
         &__card {
@@ -15,6 +29,11 @@
             text-align: right;
             margin-right: 30px;
             padding-top: 10px;
+            @include tablet {
+                text-align: center;
+                margin-bottom: 24px;
+                margin-right: 0;
+            }
         }
     }
 
