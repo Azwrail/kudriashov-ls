@@ -4,8 +4,13 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 
 import categories from './modules/categories'
-export const store = new Vuex.Store({
+import skills from "./modules/skills";
+import tooltips from "./modules/tooltips";
+
+export default new Vuex.Store({
     modules: {
-        categories
+        categories,
+        skills,
+        tooltips
     }
 })

@@ -31,6 +31,7 @@ import appButton from "../../components/button/button"
 import Button from "../../components/button/button";
 import { Validator, mixin as ValidatorMixin} from "simple-vue-validator"
 import $axios from "../../request";
+import {mapActions} from "vuex";
 
 export default {
   mixins: [
@@ -60,6 +61,9 @@ export default {
     appButton
   },
   methods: {
+    ...mapActions({
+      showTooltip: "tooltips/show"
+    }),
     async logIn() {
       if (await this.$validate() === false) return;
       this.isSubmitDisabled = true;
@@ -70,8 +74,16 @@ export default {
         const token = response.data.token;
         window.localStorage.setItem("token", token);
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`
+
+        const resp = await $axios.get("user");
+        window.localStorage.setItem("userId", resp.data.user.id);
+
         this.$router.replace("/");
       } catch (error) {
+        this.showTooltip({
+          text: error.response.data.error,
+          type: "error"
+        })
         console.log(error.response.data.error);
       } finally {
         this.isSubmitDisabled = false;
