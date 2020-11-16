@@ -6,6 +6,9 @@ const categories = {
     mutations: {
         SET_CATEGORIES: (state, categories) => state.categories = categories,
         ADD_CATEGORY: (state, category) => state.categories.unshift(category),
+        EDIT_CATEGORY: (state, categoryToEdit) => state.categories.filter(
+            category => category.id === categoryToEdit.id ? categoryToEdit: category
+        ) ,
         REMOVE_CATEGORY: (state, categoryId) =>
             state.categories = state.categories.filter(category => category.id !== categoryId),
         ADD_SKILL: (state, skill) => {
@@ -14,7 +17,7 @@ const categories = {
                     if (typeof category.skills == 'undefined') {
                         category.skills = [];
                     }
-                    category.skills.push(skill)
+                    category.skills.push(skill);
                 }
                 return category;
             })
@@ -50,18 +53,18 @@ const categories = {
         async get({commit}) {
             try {
                 const userId = window.localStorage.getItem("userId")
-                console.log(userId);
                 const {data} = await this.$axios.get("categories/" + userId);
                 commit("SET_CATEGORIES", data);
             } catch (error) {
-                console.log(error.response.data)
+                throw new Error(error.response.data.error)
             }
         },
         async edit({commit}, category) {
             try {
-                const {data} = await this.$axios.post("categories/" + category.id, {title: category.title});
+                await this.$axios.post("categories/" + category.id, {title: category.title});
+                commit("EDIT_CATEGORY", category);
             } catch (error) {
-
+                throw new Error(error.response.data.error)
             }
         },
         async delete({commit}, id) {

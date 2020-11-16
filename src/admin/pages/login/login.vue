@@ -2,11 +2,8 @@
   <div class="login-page">
     <div class="login-window">
       <div class="window-wrapper">
-        <div class="title-wrapper">
-          <button type="button" class="button-close">x</button>
-          <div class="title">Авторизация</div>
-        </div>
         <form @submit.prevent="logIn" class="input-wrapper">
+          <div class="title">Авторизация</div>
           <app-input
               v-model="user.name"
               title="Логин"

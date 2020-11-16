@@ -32,7 +32,6 @@ const skills = {
             }
         },
         async edit({commit}, skill) {
-            console.log(skill)
             try {
                 await this.$axios.post("skills/" + skill.id, skill);
                 commit("categories/EDIT_SKILL", skill, {root: true});

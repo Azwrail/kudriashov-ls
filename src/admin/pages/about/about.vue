@@ -126,6 +126,7 @@ export default {
           text: "Скилл изменен",
           type: "success"
         });
+        skill.editmode = false;
       } catch (error) {
         this.showTooltip({
           text: error.message,
@@ -140,7 +141,6 @@ export default {
           id: categoryId,
           title
         });
-        this.empty = false;
         this.showTooltip({
           text: "Категория изменена",
           type: "success"
@@ -174,7 +174,6 @@ export default {
     this.getCategoriesAction();
   },
   beforeCreate() {
-    console.log(window.localStorage.getItem("token") )
     if (window.localStorage.getItem("token") === null) {
       this.$router.replace("/login");
     }
