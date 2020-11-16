@@ -173,6 +173,12 @@ export default {
   created() {
     this.getCategoriesAction();
   },
+  beforeCreate() {
+    console.log(window.localStorage.getItem("token") )
+    if (window.localStorage.getItem("token") === null) {
+      this.$router.replace("/login");
+    }
+  }
 }
 </script>
 
