@@ -3,6 +3,7 @@
       :class="['add-tag-component']">
     <div class="add-title">
       <app-input
+          v-if="withAdd"
           title="Добавление тега"
           v-model="currentTags"
           @input="$emit('change', currentTags)"
@@ -15,7 +16,7 @@
           <tag
               @click="removeTag(tag)"
               :title="tag"
-              interactive>
+              :interactive="withAdd">
           </tag>
         </li>
       </ul>
@@ -32,7 +33,8 @@ export default {
     tags: {
       type: String,
       default: ""
-    }
+    },
+    withAdd: Boolean
   },
   model: {
     prop: "tags",

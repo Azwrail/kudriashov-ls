@@ -14,9 +14,6 @@ const categories = {
         ADD_SKILL: (state, skill) => {
             state.categories = state.categories.map(category => {
                 if(category.id === skill.category) {
-                    if (typeof category.skills == 'undefined') {
-                        category.skills = [];
-                    }
                     category.skills.push(skill);
                 }
                 return category;
@@ -45,6 +42,7 @@ const categories = {
         async create({commit}, title) {
             try {
                 const {data} = await this.$axios.post("categories", { title });
+                data.skills = [];
                 commit("ADD_CATEGORY", data);
             } catch (error) {
                 throw new Error('Ошибка создания категории')

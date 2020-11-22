@@ -21,7 +21,7 @@
           </li>
           <li class="item" v-for="category in categories" :key="category.id">
             <blank
-                :empty="empty"
+                @cancel="empty = false"
                 :title="category.category"
                 :skills="category.skills"
                 @createSkill="createNewSkill($event, category.id)"
@@ -172,11 +172,6 @@ export default {
   },
   created() {
     this.getCategoriesAction();
-  },
-  beforeCreate() {
-    if (window.localStorage.getItem("token") === null) {
-      this.$router.replace("/login");
-    }
   }
 }
 </script>

@@ -59,7 +59,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      showTooltip: "tooltips/show"
+      showTooltip: "tooltips/show",
+      setUser: "user/login"
     }),
     async logIn() {
       if (await this.$validate() === false) return;
@@ -73,7 +74,7 @@ export default {
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`
 
         const resp = await $axios.get("user");
-        window.localStorage.setItem("userId", resp.data.user.id);
+        this.logIn(resp.data.user);
 
         this.$router.replace("/");
       } catch (error) {
