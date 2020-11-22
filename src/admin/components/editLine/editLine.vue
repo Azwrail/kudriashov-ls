@@ -4,7 +4,7 @@
       <div class="text">{{value}}</div>
       <div class="icon">
         <icon symbol="pencil" class="btn" grayscale @click="editmode = true"></icon>
-        <icon symbol="trash" class="btn" grayscale @click="$emit('remove-blank')"></icon>
+        <icon symbol="trash" class="btn" grayscale @click="$emit('remove')"></icon>
       </div>
     </div>
     <div v-else class="title">
@@ -24,7 +24,7 @@
           <icon v-if="isValidTitle" symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="cross" @click="$emit('cancel')"></icon>
         </div>
       </div>
     </div>

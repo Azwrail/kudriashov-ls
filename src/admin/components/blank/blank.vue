@@ -5,9 +5,9 @@
           slot="title"
           v-model="blankTitle"
           :edit-mode-by-default="empty"
-          @remove="$emit('remove', $event)"
-          @remove-blank="$emit('remove-blank')"
-          @approve="validationTitle()"
+          @cancel="$emit('cancel', $event)"
+          @remove="$emit('removeCategory')"
+          @approve="approveTitle"
           :isValidTitle="isTitleNotEmpty">
       </edit-line>
       <template slot="content">
@@ -15,12 +15,12 @@
           <li class="item" v-for="skill in skills" :key="skill.id" v-if="empty === false">
             <skill
                 :skill="skill"
-                @remove="$emit('remove-skill', $event)"
-                @approve="$emit('edit-skill', $event)"></skill>
+                @remove="$emit('removeSkill', $event)"
+                @approve="$emit('editSkill', $event)"></skill>
           </li>
         </ul>
         <div class="add-skill-line">
-          <add-skill @addSkill="pushNewSkill" :blocked="empty"></add-skill>
+          <add-skill @addSkill="$emit('createSkill', $event)" :blocked="empty"></add-skill>
         </div>
       </template>
     </card>
@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      blankTitle: this.title
+      blankTitle: this.title,
     }
   },
   computed: {
@@ -58,8 +58,17 @@ export default {
     }
   },
   methods: {
-    pushNewSkill(newSkill) {
-      this.skills.push(newSkill)
+    createNewSkill($event) {
+      this.$emit('createSkill', $event)
+    },
+    approveTitle($event) {
+      if (this.empty === true) {
+        this.$emit('createCategory', $event)
+        console.log('createCategory')
+      } else {
+        this.$emit('editCategory', $event)
+        console.log('editCategory')
+      }
     }
   }
 }
