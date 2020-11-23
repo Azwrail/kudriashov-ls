@@ -29,7 +29,7 @@ script(type="text/x-template")#reviews-container
                             p {{review.text}}
                         .review-item__author
                     .review-item__author-wrapper
-                        img(:src="review.authorPic").avatar.review-item__avatar
+                        img(:src="cover(review.photo)").avatar.review-item__avatar
                         .review-item__author-info
-                            .review-item__author-name {{review.authorName}}
-                            .review-item__author-position {{review.authorOcc}}
+                            .review-item__author-name {{review.author}}
+                            .review-item__author-position {{review.occ}}

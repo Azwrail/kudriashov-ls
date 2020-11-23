@@ -165,7 +165,7 @@
     flex-direction: column;
     position: absolute;
     right: 0;
-    padding-bottom: 60px;
+    padding-bottom: 4.1rem;
     .up-btn,
     .down-btn {
         display: inline-block;
@@ -228,6 +228,10 @@
     @include desktop {
         height: 50%;
     }
+    &.active {
+        border: 2px solid #DC9322;
+        box-sizing: content-box;
+    }
 }
 
 .slider__window {
@@ -237,10 +241,7 @@
 .slider__button {
     padding: 0;
 }
-.active {
-    border: 3px solid #DC9322;
-    box-sizing: border-box;
-}
+
 .slider__buttons-item {
     &:first-child {
         max-height: 50px;

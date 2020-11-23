@@ -7,7 +7,7 @@
   >{{title}}</button>
 
   <label class="btn-file-container" v-else-if="typeAttr === 'file'">
-    <div class="btn-file-fake btn-decorator">{{title}}</div>
+    <div :class="['btn-file-fake', {plain}, 'btn-decorator']">{{title}}</div>
     <input class="btn-file-input" type="file" v-on="$listeners" />
   </label>
 </template>

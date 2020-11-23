@@ -7,6 +7,7 @@
           title="Добавление тега"
           v-model="currentTags"
           @input="$emit('change', currentTags)"
+          :error-message="error"
       />
       <ul class="tags">
         <li class="item"
@@ -34,7 +35,11 @@ export default {
       type: String,
       default: ""
     },
-    withAdd: Boolean
+    withAdd: Boolean,
+    error: {
+      type: String,
+      default: ""
+    }
   },
   model: {
     prop: "tags",
@@ -42,7 +47,7 @@ export default {
   },
   data() {
     return {
-      currentTags: this.tags
+      currentTags: this.tags,
     }
   },
   computed: {

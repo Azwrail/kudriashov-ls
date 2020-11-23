@@ -1,6 +1,8 @@
 import Vue from "vue";
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import 'swiper/swiper-bundle.css';
+import axios from "axios";
+axios.defaults.baseURL = "https://webdev-api.loftschool.com/";
 
 new Vue({
     el: "#reviews-component",
@@ -62,11 +64,16 @@ new Vue({
         },
         onWindowResize() {
             this.windowsWidth = window.innerWidth
-        }
+        },
+        cover(photo) {
+            return `https://webdev-api.loftschool.com/${photo}`
+        },
     },
-    created() {
-        this.reviews = require("../data/reviews.json");
-        this.reviews = this.requireImagesToArray(this.reviews)
+    async created() {
+        // this.reviews = require("../data/reviews.json");
+        // this.reviews = this.requireImagesToArray(this.reviews)
+        const {data} = await axios.get("reviews/" + 418);
+        this.reviews = data;
         this.windowsWidth = window.innerWidth
         window.addEventListener("resize", this.onWindowResize);
     }

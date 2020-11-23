@@ -4,7 +4,7 @@ script(type="text/x-template")#skills-list
             skills-row(:category="category")
 script(type="text/x-template")#skills-row
         .skills-widget-row
-            .skills-widget__title {{category.title}}
+            .skills-widget__title {{category.category}}
                 ul.skills-widget-row__list
                     skills-item(v-for="skill in category.skills" :key="skill.id" :skill="skill")
 script(type="text/x-template")#skill-item

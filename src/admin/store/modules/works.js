@@ -9,7 +9,6 @@ const works = {
         EDIT_WORK: (state, workToEdit) => state.works = state.works.filter(
             work =>  {
                 if(work.id === workToEdit.id) {
-                    console.log(true)
                     return workToEdit
                 } else {
                     return work
@@ -26,6 +25,7 @@ const works = {
             Object.keys(work).forEach(item => {
                 if (item === "preview") return;
                 if (item === "isNew") return;
+                if (item === "id") return;
                 formData.append(item, work[item]);
             })
 

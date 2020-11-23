@@ -10,7 +10,7 @@
               .fullfilled
                 .left-side
                   label(
-                    :class="['img-area', {active: form.preview}, {hovered: hovered}]"
+                    :class="['img-area', {active: form.preview}, {hovered: hovered},  {validate: validation.firstError('form.preview')}]"
                     :style="{backgroundImage: `url(${form.preview})`}"
                     @dragover="handleDragover"
                     @dragleave="hovered = false"
@@ -23,13 +23,27 @@
                         @change="handleChange"
                         ).button
                 .right-side
-                  app-input(title="Название" v-model="form.title").item
-                  app-input(title="Ссылка" v-model="form.link").item
-                  app-input(title="Описание" v-model="form.description" field-type="textarea").item
-                  add-tag(v-model="form.techs" with-add=true).item
+                  app-input(
+                    title="Название"
+                    v-model="form.title"
+                    :error-message="validation.firstError('form.title')"
+                  ).item
+                  app-input(
+                    title="Ссылка"
+                    v-model="form.link"
+                    :error-message="validation.firstError('form.link')").item
+                  app-input(
+                    title="Описание"
+                    v-model="form.description"
+                    field-type="textarea"
+                    :error-message="validation.firstError('form.description')").item
+                  add-tag(
+                    v-model="form.techs"
+                    with-add=true
+                    :error="validation.firstError('form.techs')").item
               .submit
                 .buttons-line
-                  app-button(plain title="Отмена" @click="addState = false" type=button).cancel-button
+                  app-button(plain title="Отмена" @click="cancel" type=button).cancel-button
                   app-button(title="Отправить")
         ul.cards
           li.card
@@ -59,9 +73,30 @@ import SquareBtn from "../../components/button/types/squareBtn/squareBtn";
 import Icon from "../../components/icon/icon";
 import {mapActions, mapState} from "vuex";
 import Tag from "../../components/tag/tag";
+import { Validator, mixin as ValidatorMixin} from "simple-vue-validator"
 
 export default {
   components: {Tag, Icon, SquareBtn, Card, AddTag, EditLine, appInput, appButton},
+  mixins: [
+    ValidatorMixin
+  ],
+  validators: {
+    "form.title": value => {
+      return Validator.value(value).required("Введите заголовок")
+    },
+    "form.link": value => {
+      return Validator.value(value).required("Укажите ссылку")
+    },
+    "form.description": value => {
+      return Validator.value(value).required("Введите описание")
+    },
+    "form.techs": value => {
+      return Validator.value(value).required("Добавьте тэг (и)")
+    },
+    "form.preview": value => {
+      return Validator.value(value).required("Добавьте фото")
+    }
+  },
   data() {
     return {
       hovered: false,
@@ -74,14 +109,6 @@ export default {
         preview: "",
         isNew: true,
         id: ""
-      },
-      card: {
-        id: 1,
-        title: "Сайт школы образования",
-        description: "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
-        link: "http://loftschool.ru",
-        photo: "./slider-1.jpg",
-        techs: ""
       },
       addState: false
     }
@@ -103,6 +130,15 @@ export default {
       return `https://webdev-api.loftschool.com/${photo}`
     },
     async handleSubmit() {
+      if (await this.$validate() === false) {
+        if (this.validation.firstError('form.preview')) {
+          this.showTooltip({
+            text: this.validation.firstError('form.preview'),
+            type: "error"
+          })
+        }
+        return;
+      }
       try {
         if (this.form.isNew) {
           await this.createWorkAction(this.form);
@@ -119,13 +155,7 @@ export default {
           this.$router.go();
         }
 
-        this.addState = false;
-        this.form.title = "";
-        this.form.description = "";
-        this.form.link = "";
-        this.form.photo = "";
-        this.form.preview = "";
-        this.form.techs = ""
+        this.cancel();
       } catch (error) {
         this.showTooltip({
           text: error.message,
@@ -168,9 +198,16 @@ export default {
       this.form.isNew = false;
       this.form.id = item.id;
 
+    },
+    cancel() {
+      this.addState = false;
+      this.form.title = "";
+      this.form.description = "";
+      this.form.link = "";
+      this.form.photo = "";
+      this.form.preview = "";
+      this.form.techs = ""
     }
-
-
   },
   created() {
     this.getWorksAction();

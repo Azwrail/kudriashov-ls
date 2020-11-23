@@ -1,4 +1,6 @@
 import Vue from "vue";
+import axios from "axios";
+axios.defaults.baseURL = "https://webdev-api.loftschool.com/";
 
 const sliderBtns = {
     template: "#slider-btns",
@@ -20,6 +22,9 @@ const previewDisplay = {
         },
         show(key) {
             this.$emit("show", key)
+        },
+        cover(photo) {
+            return `https://webdev-api.loftschool.com/${photo}`
         }
     },
     computed: {
@@ -37,11 +42,6 @@ const previewInfo = {
     template: "#preview-info",
     components: {
         previewTag
-    },
-    computed: {
-        tagsArray() {
-            return this.currentWork.skills.split(",")
-        }
     }
 }
 new Vue({
@@ -58,7 +58,6 @@ new Vue({
             key: ""
         }
     },
-
     computed: {
       currentWork() {
           return this.portfolio[0]
@@ -104,8 +103,10 @@ new Vue({
         }
     },
 
-    created() {
-        this.portfolio = require("../data/portfolio.json");
-        this.portfolio = this.requireImagesToArray(this.portfolio)
+    async created() {
+        // this.portfolio = require("../data/portfolio.json");
+        // this.portfolio = this.requireImagesToArray(this.portfolio)
+        const {data} = await axios.get("works/" + 418);
+        this.portfolio = data;
     }
 })

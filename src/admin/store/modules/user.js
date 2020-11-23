@@ -10,9 +10,11 @@ const user = {
     actions: {
         logout({commit}) {
             localStorage.removeItem("token");
+            localStorage.removeItem("userId");
             location.reload();
         },
         login({commit}, user) {
+            localStorage.setItem("userId", user.id)
             commit("SET_USER", user);
         }
     },

@@ -14,17 +14,16 @@ script(type="text/x-template")#preview-display
     .slider(:data-slide="currentIndex + 1")
         .slider__main
             .slider__window
-                img(:src="currentWork.photo")
+                img(:src="cover(currentWork.photo)")
             ul.slider__preview
                 li(
                     v-for="(work, index) in reversedWorks" :key="work.id"
-                    :class="{active: currentWork.id === work.id}"
                 )
                     button(
                         type="button"
                         @click="show(index)"
                     ).slider__button
-                        img(:src="work.photo").preview__image
+                        img(:src="cover(work.photo)" :class="['preview__image', {active: currentWork.id === work.id}]")
             slider-btns(
                 @slide="slide"
             )
@@ -44,13 +43,10 @@ script(type="text/x-template")#slider-btns
                 +icon("arrow-down", "arrow-down")
 script(type="text/x-template")#preview-info
     .portfolio__desc
-        preview-tag(
-            :tags = "tagsArray"
-        )
-
+        preview-tag(:tags = 'currentWork.techs.split(",")')
         h3.portfolio__desc-title {{currentWork.title}}
-        .portfolio__desc-info {{currentWork.desc}}
-        a(href="#").portfolio__desc-link
+        .portfolio__desc-info {{currentWork.description}}
+        a(:href="currentWork.link").portfolio__desc-link
             +icon("link", "portfolio__desc-link-icon")
             | Посмотреть сайт
 script(type="text/x-template")#preview-tag
