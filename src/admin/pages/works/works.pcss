@@ -25,11 +25,7 @@
     margin-bottom: 50px;
     @media (max-width: 450px) {
         flex-direction: column;
-        margin-left: 50px;
-    }
-    @media (max-width: 400px) {
-        flex-direction: column;
-        margin-left: 25px;
+        margin-left: 0;
     }
 }
 .headline {
@@ -44,7 +40,7 @@
     }
 }
 .form {
-    height: 780px;
+    min-height: 780px;
 }
 .img-area {
     min-height: 280px;
@@ -70,6 +66,11 @@
 .left-side {
     flex-basis: 490px;
     padding-right: 30px;
+    @media (max-width: 700px) {
+        flex-basis: 100px;
+        max-width: 500px;
+    }
+    padding-bottom: 50px;
 }
 .text-hint {
     font-style: normal;
@@ -103,6 +104,12 @@
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
+    @media (max-width: 700px) {
+        padding-top: 20px;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 700px;
+    }
 }
 .item {
     margin-bottom: 30px;
@@ -113,6 +120,7 @@
         margin-bottom: 0;
         padding-bottom: 50px;
     }
+
 }
 .cancel-button {
     margin-right: 20px;
@@ -122,6 +130,9 @@
     flex-wrap: wrap;
     margin-left: -30px;
     margin-top: -30px;
+    @media (max-width: 670px) {
+        justify-content: center;
+    }
 }
 .card {
     width: calc(100% / 3 - 30px);
@@ -129,6 +140,12 @@
     margin-left: 30px;
     margin-top: 30px;
     min-height: 560px;
+    @media (max-width: 500px) {
+        width: 100%;
+        &:first-child {
+            min-height: 100%;
+        }
+    }
     justify-content: space-evenly;
 }
 .card-img {
@@ -169,4 +186,17 @@
     position: absolute;
     right: 0;
     bottom: 0;
+}
+//.page-content-container {
+//    @media (max-width: 500px) {
+//        width: 100%;
+//    }
+//}
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 95%;
+    @media (max-width: 500px) {
+        width: 95%;
+    }
 }

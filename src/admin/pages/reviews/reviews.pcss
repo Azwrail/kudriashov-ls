@@ -25,11 +25,7 @@
     margin-bottom: 50px;
     @media (max-width: 450px) {
         flex-direction: column;
-        margin-left: 50px;
-    }
-    @media (max-width: 400px) {
-        flex-direction: column;
-        margin-left: 25px;
+        margin-left: 0;
     }
 }
 .headline {
@@ -44,13 +40,16 @@
     }
 }
 .form {
-    height: 520px;
+    min-height: 520px;
     padding-right: 15em;
     @media (max-width: 1200px) {
         padding-right: 8em;
     }
     @media (max-width: 800px) {
         padding-right: 5em;
+    }
+    @media (max-width: 700px) {
+        padding-right: 0;
     }
 }
 .img-area {
@@ -73,6 +72,9 @@
     max-width: 620px;
     display: flex;
     flex-direction: column;
+    @media (max-width: 700px) {
+        flex-basis: 0;
+    }
 }
 .left-side {
     flex-basis: 220px;
@@ -80,6 +82,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    @media (max-width: 700px) {
+        align-items: center;
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
 }
 .text-hint {
     font-style: normal;
@@ -113,11 +120,24 @@
     display: flex;
     padding-top: 50px;
     margin-bottom: 50px;
+    @media (max-width: 700px) {
+        padding-top: 20px;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 700px;
+    }
 }
 .item {
     flex-basis: 300px;
     &:first-child {
         margin-right: 20px;
+    }
+    @media (max-width: 500px) {
+        flex-basis: 0;
+        margin-bottom: 30px;
+        &:first-child {
+            margin-right: 0;
+        }
     }
 }
 .cancel-button {
@@ -128,6 +148,9 @@
     flex-wrap: wrap;
     margin-left: -30px;
     margin-top: -30px;
+    @media (max-width: 650px) {
+        justify-content: center;
+    }
 }
 .card {
     width: calc(100% / 3 - 30px);
@@ -136,6 +159,10 @@
     margin-top: 30px;
     min-height: 380px;
     justify-content: space-evenly;
+    @media (max-width: 500px) {
+        width: 100%;
+        min-height: 100%;
+    }
 }
 .card-img {
     margin-right: 20px;
@@ -185,14 +212,24 @@
         transform: translate(-50%, -50%);
     }
     @media (max-width: 700px) {
-        width: 120px;
-        height: 120px;
+        margin-bottom: 20px;
+    }
+    @media (max-width: 500px) {
+        width: 150px;
+        height: 150px;
     }
 }
 .author-ooc {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
+    @media (max-width: 500px) {
+        padding-top: 20px;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 700px;
+        align-items: initial;
+    }
 }
 .button {
     text-align: center;
@@ -202,4 +239,12 @@
 }
 .author-info {
     display: flex;
+}
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 95%;
+    @media (max-width: 500px) {
+        width: 95%;
+    }
 }
